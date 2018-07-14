@@ -1,3 +1,4 @@
+// PAGE 1 - INDEX.HTML
 // pegar os dois select do html
 var localMenu = document.querySelector("#localMenu");
 var yearClassMenu = document.querySelector("#yearClassMenu");
