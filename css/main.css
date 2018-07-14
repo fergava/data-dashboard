@@ -46,6 +46,7 @@ header {
 	height: 60px;
 	background-image: url("../assets/images/profile-vanessa.jpg");
 	background-size: cover;
+	cursor: pointer;
 	/*position: absolute;*/
 	/*z-index: 1;*/
 	/*border: 1px solid red;*/
@@ -98,7 +99,6 @@ nav {
 .icon-heart, .icon-cog, .icon-times {
 	font-size: 16px;
 	color: #9595EA;
-
 }
 
 /*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
@@ -135,6 +135,10 @@ nav {
 	border-radius: 20px;
 	font-size: 16px;
 	font-weight: 700;
+}
+
+#continueButton a {
+	color: black;
 }
 
 /*RODAPÉ*/
