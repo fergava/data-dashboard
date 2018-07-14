@@ -3,8 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>Data Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700,800,900" rel="stylesheet">
+    <link href="https://file.myfontastic.com/Sf3bLHBYtyyjc8qKTmPFVK/icons.css" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <a href="index.html" target="" id="home"><div></div></a>
+      <div id="schedule"><a href="https://calendar.google.com" target="_blank"><i class="icon-calendar"></i></a></div>
+      <div id="login"></div>
+    </header>
+    
+    <section>
+      <h1 id="localChoose">Escolha a sede e geração:</h1>
+      <select id="localMenu"></select>
+      <select id="yearClassMenu"></select>
+      <a href="screen1.html"><button id="continueButton" type="submit" disabled="">Continuar</button></a>
+    </section>
+
+    <footer>
+      <span class="iconsMargin"><a href="https://www.facebook.com/Laboratoriabr/" target="_blank"><i class="icon-facebook-squared icons"></i></a></span>
+      <span class="iconsMargin"><a href="https://www.instagram.com/laboratoriala/" target="_blank"><i class="icon-instagrem icons"></i></a></span>
+      <span class="iconsMargin"><a href="https://twitter.com/laboratoriala" target="_blank"><i class="icon-twitter icons"></i></a></span>
+    </footer>
 
 		<!-- Base de datos -->
 		<script src="./js/data.js"></script>

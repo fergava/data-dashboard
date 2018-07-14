@@ -1,3 +1,107 @@
-/*
- * Estilos de tu proyecto
- */
+html {
+	font-family: "Muli", sans-serif;
+	box-sizing: border-box;
+	background-size: cover;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+header {
+	height: 80px;
+	background-color:#E6E6FA;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icon-calendar {
+	font-size: 50px;
+}
+
+#home, #schedule, #login {
+	margin: 20px;
+}
+
+section {
+	height: 480px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#localChoose {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+#localMenu, #yearClassMenu {
+	width: 200px;
+	height: 35px;
+	margin-top: 15px;
+	border-radius: 20px;
+	font-size: 14px;
+	text-align-last: center;
+	text-align: center;
+}
+
+#continueButton {
+	width: 100px;
+	height: 35px;
+	background-color: #FFE521;
+	margin-top: 25px;
+	border: none;
+	border-radius: 20px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+footer {
+	height: 50px;
+	background-color:#E6E6FA;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#facebook, #instagram, #twitter {
+	margin: 30px;
+}
+
+#home {
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	background-image: url("../assets/images/lab-logo.png");
+	background-size: cover;
+}
+
+#home:hover {
+	width: 62px;
+	height: 62px;
+}
+
+#login {
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	background-image: url("../assets/images/profile-vanessa.jpg");
+	background-size: cover;
+}
+
+.icons {
+	font-size: 30px;	
+}
+
+.iconsMargin {
+	margin: 10px;
+}
+
+a {
+	text-decoration-line: none;
+	color: #9595ea;
+}
