@@ -7,6 +7,7 @@ window.onload = createOptions1();
 
 // função cria as opções de local e ano e turma e inserre a informção do banco de dados no local
 function createOptions1() {
+	
 	var localOptions = document.createElement("option");
 	localOptions.innerHTML = "Sede";
 	localOptions.value = "none";
@@ -31,6 +32,12 @@ localMenu.addEventListener("change", createOptions2);
 function createOptions2() {
 	var local = localMenu.value;
 	yearClassMenu.innerHTML = "";
+	
+	var yearClassOptions = document.createElement("option");
+	yearClassOptions.innerHTML = "Ano - Turma";
+	yearClassOptions.value = "none";
+	yearClassMenu.appendChild(yearClassOptions);
+
 	for (yearClass in data[local]) {
 		var yearClassItem = document.createElement("option");
 		yearClassItem.value = yearClass;

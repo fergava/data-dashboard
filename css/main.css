@@ -9,6 +9,8 @@ html {
 	-o-background-size: cover;
 }
 
+/* CABEÇALHO */
+
 header {
 	height: 80px;
 	background-color:#E6E6FA;
@@ -44,9 +46,63 @@ header {
 	height: 60px;
 	background-image: url("../assets/images/profile-vanessa.jpg");
 	background-size: cover;
+	/*position: absolute;*/
+	/*z-index: 1;*/
+	/*border: 1px solid red;*/
 }
 
-section {
+/*MENU INVISÍVEL*/
+#check {
+	display: none;
+}
+
+#check:checked ~ .barra {
+	transform: translateX(-160px);
+	display: block;
+}
+
+.barra {
+	background-color: #E6E6FA;
+	height: 215px;
+	width: 160px;
+	position: absolute;
+	right: -160px;
+	/*transition: all .5s linear;*/
+	display: none;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+}
+
+.link {
+	padding: 18px;
+	font-size: 12px;
+	text-decoration: none;
+	/*text-align: center;*/
+	/*transition: .3s linear;*/
+	color: black;
+	border-bottom: 2px solid #9595EA;
+}
+
+.link:hover {
+	background-color: #FFE521;
+}
+
+.myCount {
+	font-weight: 700;
+	text-align: center;
+}
+
+.icon-heart, .icon-cog, .icon-times {
+	font-size: 16px;
+	color: #9595EA;
+
+}
+
+/*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
+.selectors {
 	height: 500px;
 	display: flex;
 	flex-direction: column;
@@ -62,9 +118,8 @@ section {
 #localMenu, #yearClassMenu {
 	width: 200px;
 	height: 35px;
-	/*background-color: #E6E6FA;*/
 	margin-top: 15px;
-	border: 1px solid black;
+	border: 2px solid #9595EA;
 	border-radius: 20px;
 	font-size: 14px;
 	text-align-last: center;
@@ -82,6 +137,7 @@ section {
 	font-weight: 700;
 }
 
+/*RODAPÉ*/
 footer {
 	height: 50px;
 	background-color:#E6E6FA;
