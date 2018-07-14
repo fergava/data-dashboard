@@ -25,13 +25,33 @@ header {
 	margin: 20px;
 }
 
+#home {
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	background-image: url("../assets/images/lab-logo.png");
+	background-size: cover;
+}
+
+#home:hover {
+	width: 62px;
+	height: 62px;
+}
+
+#login {
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	background-image: url("../assets/images/profile-vanessa.jpg");
+	background-size: cover;
+}
+
 section {
-	height: 480px;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 }
 
 #localChoose {
@@ -42,7 +62,9 @@ section {
 #localMenu, #yearClassMenu {
 	width: 200px;
 	height: 35px;
+	/*background-color: #E6E6FA;*/
 	margin-top: 15px;
+	border: 1px solid black;
 	border-radius: 20px;
 	font-size: 14px;
 	text-align-last: center;
@@ -72,33 +94,12 @@ footer {
 	margin: 30px;
 }
 
-#home {
-	border-radius: 100%;
-	width: 60px;
-	height: 60px;
-	background-image: url("../assets/images/lab-logo.png");
-	background-size: cover;
-}
-
-#home:hover {
-	width: 62px;
-	height: 62px;
-}
-
-#login {
-	border-radius: 100%;
-	width: 60px;
-	height: 60px;
-	background-image: url("../assets/images/profile-vanessa.jpg");
-	background-size: cover;
-}
-
 .icons {
 	font-size: 30px;	
 }
 
 .iconsMargin {
-	margin: 10px;
+	margin: 0px 40px;
 }
 
 a {

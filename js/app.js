@@ -40,6 +40,20 @@ function createOptions2() {
 	}
 }
 
+yearClassMenu.addEventListener("change", prepareToSend);
+
+function prepareToSend() {
+	var yearClass = yearClassMenu.value;
+	for (i in data[local][yearClass]) {
+		for (j of data[local][yearClass]["students"]) {
+			console.log(j)
+		}
+		for (l of data[local][yearClass]["ratings"]) {
+			console.log(l);
+		}
+	}
+}
+
 
 
 // console.log(data);
