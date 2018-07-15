@@ -1,3 +1,4 @@
+// PAGE 1 - INDEX.HTML
 // pegar os dois select do html
 var localMenu = document.querySelector("#localMenu");
 var yearClassMenu = document.querySelector("#yearClassMenu");
@@ -7,6 +8,7 @@ window.onload = createOptions1();
 
 // função cria as opções de local e ano e turma e inserre a informção do banco de dados no local
 function createOptions1() {
+
 	var localOptions = document.createElement("option");
 	localOptions.innerHTML = "Sede";
 	localOptions.value = "none";
@@ -58,6 +60,14 @@ function prepareToSend() {
 			console.log(l);
 		}
 	}
+}
+
+var continueButton = document.querySelector("#continueButton");
+
+continueButton.addEventListener("click", sendData);
+
+function sendData() {
+	prepareToSend();
 }
 
 
