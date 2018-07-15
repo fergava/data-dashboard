@@ -31,6 +31,12 @@ localMenu.addEventListener("change", createOptions2);
 function createOptions2() {
 	var local = localMenu.value;
 	yearClassMenu.innerHTML = "";
+	
+	var yearClassOptions = document.createElement("option");
+	yearClassOptions.innerHTML = "Ano - Turma";
+	yearClassOptions.value = "none";
+	yearClassMenu.appendChild(yearClassOptions);
+
 	for (yearClass in data[local]) {
 		var yearClassItem = document.createElement("option");
 		yearClassItem.value = yearClass;
