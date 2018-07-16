@@ -22,90 +22,132 @@ a {
   color: #9595ea;
 }
 
-
 .icon-calendar {
-	font-size: 50px;
+  font-size: 50px;
 }
 
-#home, #schedule, #login {
-	margin: 20px;
+#home,
+#schedule,
+#login {
+  margin: 20px;
 }
 
 #home {
-	border-radius: 100%;
-	width: 60px;
-	height: 60px;
-	background-image: url("../assets/images/lab-logo.png");
-	background-size: cover;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background-image: url("../assets/images/lab-logo.png");
+  background-size: cover;
 }
 
 #login {
-	border-radius: 100%;
-	width: 60px;
-	height: 60px;
-	background-image: url("../assets/images/profile-vanessa.jpg");
-	background-size: cover;
-	cursor: pointer;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background-image: url("../assets/images/profile-vanessa.jpg");
+  background-size: cover;
+  cursor: pointer;
 }
 
 /*MENU INVISÍVEL*/
+
 #check {
-	display: none;
+  display: none;
 }
 
-#check:checked ~ .barra {
-	transform: translateX(-160px);
-	display: block;
+#check:checked~.barra {
+  transform: translateX(-160px);
+  display: block;
 }
 
 .barra {
-	background-color: #E6E6FA;
-	height: 215px;
-	width: 160px;
-	position: absolute;
-	right: -160px;
-	/*transition: all .5s linear;*/
-	display: none;
+  background-color: #E6E6FA;
+  height: 215px;
+  width: 160px;
+  position: absolute;
+  right: -160px;
+  /*transition: all .5s linear;*/
+  display: none;
 }
 
 nav {
-	width: 100%;
-	position: absolute;
+  width: 100%;
+  position: absolute;
 }
 
 .link {
-	padding: 18px;
-	font-size: 12px;
-	text-decoration: none;
-	color: black;
-	border-bottom: 2px solid #9595EA;
+  padding: 18px;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid #9595EA;
 }
 
 .link:hover {
-	background-color: #FFE521;
+  background-color: #FFE521;
 }
 
 .myCount {
-	font-weight: 700;
-	text-align: center;
+  font-weight: 700;
+  text-align: center;
 }
 
-.icon-heart, .icon-cog, .icon-times {
-	font-size: 16px;
-	color: #9595EA;
+.icon-heart,
+.icon-cog,
+.icon-times {
+  font-size: 16px;
+  color: #9595EA;
 }
 
 /*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
+
 .selectors {
-	height: 500px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submenu {
+  height: 140px;
+  background-color: lightgrey;
+  display: grid;
+}
+
+.sedeSelected {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+}
+
+.screenOption {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30px;
+}
+
+.submenu h2 {
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.submenu h3 {
+  margin-right: 15px;
+}
+
+.submenu h3:hover {
+  text-transform: uppercase;
+  text-decoration:none;
+  font-weight: bolder;
+  border-bottom:4px solid #F6BD00;
+  cursor: pointer;
 }
 
 .students {
-  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -125,7 +167,6 @@ nav {
   justify-content: space-between;
   padding-left: 30px;
   padding-right: 30px;
-  
 }
 
 .setNames {
@@ -160,15 +201,15 @@ img {
 }
 
 .titleTech {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .titleHse {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .titleStatus {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .tech {

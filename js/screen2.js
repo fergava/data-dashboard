@@ -3,7 +3,7 @@ var students = document.querySelector(".students");
 window.onload = addStudents();
 
 function addStudents() {
-  
+
   var localMenu = "AQP";
   var yearClassMenu = "2016-2";
 
@@ -29,7 +29,7 @@ function addStudents() {
     var setScore = document.createElement("div");
 
     block.setAttribute("class", "setStudents");
-    name.setAttribute("class","names");
+    name.setAttribute("class", "names");
     setName.setAttribute("class", "setNames");
     photo.setAttribute("class", "photos");
     setPhoto.setAttribute("class", "setPhoto");
@@ -48,11 +48,11 @@ function addStudents() {
     name.innerHTML = student.name;
     photo.src = student.photo;
     gradeTech.innerHTML = calcTech(student) + "%";
-    gradeHse. innerHTML = calcHSE(student) + "%";
+    gradeHse.innerHTML = calcHSE(student) + "%";
     valueStatus.innerHTML = (student.active) ? 'Ativa' : 'Inativa';
 
     setName.appendChild(name);
-    block.appendChild(setName);   
+    block.appendChild(setName);
     setPhoto.appendChild(photo);
     titleTech.appendChild(textTech);
     tech.appendChild(titleTech);
@@ -78,7 +78,7 @@ function calcTech(student) {
   var average = 0;
   var count = student.sprints.length;
   for (sprint of student.sprints) {
-  grade += sprint.score.tech;
+    grade += sprint.score.tech;
   }
   average = grade / count;
   var percent = (average / 1800) * 100;
@@ -90,7 +90,7 @@ function calcHSE(student) {
   var average = 0;
   var count = student.sprints.length;
   for (sprint of student.sprints) {
-  grade += sprint.score.hse;
+    grade += sprint.score.hse;
   }
   average = grade / count;
   var percent = (average / 1200) * 100;
