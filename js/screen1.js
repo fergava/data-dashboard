@@ -1,61 +1,44 @@
-var activeStudents = document.querySelector(".activeStudents");
-var active = document.querySelector(".active");
-var inactive = document.querySelector(".inactive");
+/* função que gera: 
+O número total de alunas presentes pela sede e geração.  A porcentagem de alunas desistentes */
 
 function printActiveStudents() {
 	
 	var localMenu = "AQP";
   var yearClassMenu = "2016-2";
+  var active = 0;
+  var inactive = 0;
 
-	for (student of data[localMenu][yearClassMenu]["students"]) {
-		// console.log(student)
-		// var studentsTrueFalse = student.active;
-		// console.log(studentsTrueFalse);
-		var criar = document.createElement("p");
-		criar.className = "divMix";
-		criar.value = student.active;
-		criar.innerHTML = student.active;
-		activeStudents.appendChild(criar);
-		
-		if (criar.value === true) {
-			var criarp2 = document.createElement("p");
-			criarp2.className = "divActive";
-			criarp2.innerHTML = criar.value;
-			active.appendChild(criarp2);
+	for (student of data[localMenu][yearClassMenu]["students"]) {	
+		if (student.active === true) {
+			active ++;
 		} else {
-			var criarp3 = document.createElement("p");
-			criarp3.className = "divInactive";
-			criarp3.innerHTML = criar.value;
-			inactive.appendChild(criarp3);
+			inactive ++;
 		}
 	}
+	var arr = [
+		["Ativas", active],
+		["Inativas", inactive]
+	];
+  return arr;
 }
 
-printActiveStudents()
+// grafico pizza
+google.charts.load("current", {"packages":["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+  
+function drawChart() {
 
-	google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
+	var data = new google.visualization.DataTable();
+	  data.addColumn("string", "Status");
+	  data.addColumn("number", "Qts");
+	  data.addRows(printActiveStudents());
+  var options = {"title":"Inscrições",
+                 "width":400,
+                 "height":300,
+               	 "colors":["#FFE521","#CD2626"]
+                };
+  var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
+  chart.draw(data, options);
+}
 
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          // usar push
-        ]);
-
-        var options = {
-          width: 300,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Inscrições',
-            subtitle: 'popularity by percentage' },
-          axes: {
-            x: {
-              0: { side: 'top', label: 'White to move'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "60%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
+// ---------------------------------------

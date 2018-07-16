@@ -76,8 +76,7 @@ var continueButton = document.querySelector("#continueButton");
 continueButton.addEventListener("click", sendData);
 
 function sendData() {
-	prepareToSend();
-
+	return prepareToSend();
 }
 
 

@@ -173,9 +173,9 @@ a {
 	border: 1px solid yellow;
 }
 
-.activeStudents, .active, .inactive {
+/*.activeStudents, .active, .inactive {
 	border: 1px solid red;
-}
+}*/
 
 .selectors2 {
 	height: 500px;
