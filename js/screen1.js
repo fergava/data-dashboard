@@ -1,37 +1,48 @@
 var activeStudents = document.querySelector(".activeStudents");
 var active = document.querySelector(".active");
 var inactive = document.querySelector(".inactive");
-/* O número de alunas que excedem a meta de pontos, em média, de todos os sprints realizados. O objetivo dos pontos é 70% do total de pontos em HSE.*/
 
 function printActiveStudents() {
 	
 	var localMenu = "AQP";
   var yearClassMenu = "2016-2";
+  var active = 0;
+  var inactive = 0;
 
-	for (student of data[localMenu][yearClassMenu]["students"]) {
-		// console.log(student)
-		// var studentsTrueFalse = student.active;
-		// console.log(studentsTrueFalse);
-		var criar = document.createElement("p");
-		criar.className = "divMix";
-		criar.value = student.active;
-		criar.innerHTML = student.active;
-		activeStudents.appendChild(criar);
-		
-		if (criar.value === true) {
-			var criarp2 = document.createElement("p");
-			criarp2.className = "divActive";
-			criarp2.innerHTML = criar.value;
-			active.appendChild(criarp2);
+	for (student of data[localMenu][yearClassMenu]["students"]) {	
+		if (student.active === true) {
+			active ++;
 		} else {
-			var criarp3 = document.createElement("p");
-			criarp3.className = "divInactive";
-			criarp3.innerHTML = criar.value;
-			inactive.appendChild(criarp3);
+			inactive ++;
 		}
 	}
+	var arr = [
+		["Ativas", active],
+		["Inativas", inactive]
+	];
+  return arr;
 }
 
+// grafico pizza
+google.charts.load("current", {"packages":["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+  
+function drawChart() {
+
+	var data = new google.visualization.DataTable();
+	  data.addColumn("string", "Status");
+	  data.addColumn("number", "Qts");
+	  data.addRows(printActiveStudents());
+  var options = {"title":"Inscrições",
+                 "width":400,
+                 "height":300,
+               	 "colors":["#FFE521","#CD2626"]
+                };
+  var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
+  chart.draw(data, options);
+}
+
+// ---------------------------------------
 printActiveStudents()
 
 function averageGeneral() {

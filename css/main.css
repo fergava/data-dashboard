@@ -67,7 +67,7 @@ header {
 	display: none;
 }
 
-nav {
+.hiddenNav {
 	width: 100%;
 	position: absolute;
 }
@@ -168,11 +168,14 @@ a {
 	border: 1px solid red;
 }*/
 
-
-
-.activeStudents, .active, .inactive {
-	border: 1px solid red;
+.mainNav {
+	height: 50px;
+	border: 1px solid yellow;
 }
+
+/*.activeStudents, .active, .inactive {
+	border: 1px solid red;
+}*/
 
 .selectors2 {
 	height: 500px;
