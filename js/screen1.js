@@ -1,7 +1,3 @@
-var activeStudents = document.querySelector(".activeStudents");
-var active = document.querySelector(".active");
-var inactive = document.querySelector(".inactive");
-
 function printActiveStudents() {
 	
 	var localMenu = "AQP";
@@ -25,9 +21,9 @@ function printActiveStudents() {
 
 // grafico pizza
 google.charts.load("current", {"packages":["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChartPizza);
   
-function drawChart() {
+function drawChartPizza() {
 
 	var data = new google.visualization.DataTable();
 	  data.addColumn("string", "Status");
@@ -42,7 +38,6 @@ function drawChart() {
   chart.draw(data, options);
 }
 
-// ---------------------------------------
 printActiveStudents()
 
 function averageGeneral() {
