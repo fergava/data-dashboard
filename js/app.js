@@ -3,6 +3,8 @@
 var localMenu = document.querySelector("#localMenu");
 var yearClassMenu = document.querySelector("#yearClassMenu");
 
+localStorage.clear();
+
 // fazer a função rodar conforme obrowser abrir
 window.onload = createOptions1();
 
@@ -24,7 +26,6 @@ function createOptions1() {
 			localItem.value = local;
 			localItem.innerHTML = local;
 			localMenu.appendChild(localItem);
-			console.log(local);
 	}
 }
 
@@ -44,30 +45,6 @@ function createOptions2() {
 		yearClassItem.value = yearClass;
 		yearClassItem.innerHTML = yearClass;
 		yearClassMenu.appendChild(yearClassItem);
-		console.log(yearClassItem);
-	}
-}
-
-yearClassMenu.addEventListener("change", prepareToSend);
-
-function prepareToSend() {
-	var newDiv = document.createElement("div");
-	var yearClass = yearClassMenu.value;
-	for (i in data[local][yearClass]) {
-		for (j of data[local][yearClass]["students"]) {
-			console.log(j)
-			var showStudents = document.createElement("div");
-			showStudents.value = j;
-			showStudents.innerHTML = j;
-			newDiv.appendChild(showStudents)
-		}
-		for (l of data[local][yearClass]["ratings"]) {
-			console.log(l);
-			var showRating = document.createElement("div");
-			showRating.value = l;
-			showRating.innerHTML = l;
-			newDiv.appendChild(showRating)
-		}
 	}
 }
 
@@ -76,7 +53,13 @@ var continueButton = document.querySelector("#continueButton");
 continueButton.addEventListener("click", sendData);
 
 function sendData() {
-	return prepareToSend();
+	if(localMenu.value === 'none' || yearClassMenu.value === 'none'){
+		alert('selectione algo');
+	} else {
+		localStorage.setItem('localMenu', localMenu.value);
+		localStorage.setItem('yearClassMenu', yearClassMenu.value);
+		window.location.href = 'screen1.html';
+	}
 }
 
 

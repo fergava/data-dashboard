@@ -1,11 +1,19 @@
+var localMenu = localStorage.getItem('localMenu');
+var yearClassMenu = localStorage.getItem('yearClassMenu');
+
+if(!localMenu || !yearClassMenu){
+  window.location.href = 'index.html';
+}
+
+var selectedLocal = document.querySelector("#selectedLocal");
+
+selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
+
 var students = document.querySelector(".students");
 
 window.onload = addStudents();
 
 function addStudents() {
-
-  var localMenu = "AQP";
-  var yearClassMenu = "2016-2";
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
     var block = document.createElement("div");
