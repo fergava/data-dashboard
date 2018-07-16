@@ -44,7 +44,6 @@ function addStudents() {
     titleStatus.setAttribute("class", "titleStatus");
     setScore.setAttribute("class", "setScore");
 
-
     name.innerHTML = student.name;
     photo.src = student.photo;
     gradeTech.innerHTML = calcTech(student) + "%";
