@@ -1,7 +1,7 @@
 var localMenu = localStorage.getItem('localMenu');
 var yearClassMenu = localStorage.getItem('yearClassMenu');
 
-if(!localMenu || !yearClassMenu){
+if (!localMenu || !yearClassMenu) {
   window.location.href = 'index.html';
 }
 
@@ -16,6 +16,7 @@ google.charts.load('current', {
 // grafico pizza
 google.charts.setOnLoadCallback(drawChartPizza);
 google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawBarChart);
 
 function drawChartPizza() {
   var data = new google.visualization.DataTable();
@@ -23,7 +24,11 @@ function drawChartPizza() {
   data.addColumn("number", "Qts");
   data.addRows(printActiveStudents());
   var options = {
-    "title": "Inscrições",
+    title: 'Média de alunas inscritas',
+    titleTextStyle: {
+      fontSize: 14,
+      bold: true
+    },
     "width": 400,
     "height": 300,
     "colors": ["#FFE521", "#CD2626"]
@@ -35,7 +40,11 @@ function drawChartPizza() {
 function drawChart() {
   var data = google.visualization.arrayToDataTable(averageGeneral());
   var options = {
-    title: 'Company Performance',
+    title: 'Quantidade de alunas acima da média em todos os sprints',
+    titleTextStyle: {
+      fontSize: 14,
+      bold: true
+    },
     curveType: 'function',
     legend: {
       position: 'bottom'
@@ -45,6 +54,7 @@ function drawChart() {
   chart.draw(data, options);
 }
 
+//Funcao para gerar grafico 1 (ativas e inativas por sede)
 function printActiveStudents() {
 
   var active = 0;
@@ -64,6 +74,7 @@ function printActiveStudents() {
   return arr;
 }
 
+//Funcao para gerar grafico 2 (>70%)
 function averageGeneral() {
 
   var sp1 = 0;
@@ -119,26 +130,46 @@ function calcHseSprint(sprint) {
   return percent.toFixed(1);
 }
 
-function calcTech(student) {
-  var grade = 0;
-  var average = 0;
-  var count = student.sprints.length;
-  for (sprint of student.sprints) {
-    grade += sprint.score.tech;
+//Funcao gerar grafico 3 (NPS)
+
+function calcNps(){
+  var sprint = 0;
+  var totalNps = 0;
+  var promoters = 0;
+  var passive = 0;
+  var detractors = 0;
+  for (rating of data[localMenu][yearClassMenu]["ratings"]) {
+    promoters += rating.nps.promoters;
+    passive += rating.nps.passive;
+    detractors += rating.nps.detractors;
+    sprint ++;
   }
-  average = grade / count;
-  var percent = (average / 1800) * 100;
-  return percent.toFixed(1);
+  totalNps = promoters - detractors;
+  
+  var arr =[
+    ['Name', '%'],
+    ['NPS', (totalNps/sprint)],
+    ['Promoters', (promoters/sprint)],
+    ['Passive',(passive/sprint)],
+    ['Detractors',(detractors/sprint)]
+  ];
+
+  return arr;
 }
 
-function calcHSE(student) {
-  var grade = 0;
-  var average = 0;
-  var count = student.sprints.length;
-  for (sprint of student.sprints) {
-    grade += sprint.score.hse;
-  }
-  average = grade / count;
-  var percent = (average / 1200) * 100;
-  return percent.toFixed(1);
+function drawBarChart() {
+  var data = google.visualization.arrayToDataTable(calcNps());
+  var options = {
+    title: "NPS médio dos sprints",
+    titleTextStyle: {
+      fontSize: 14,
+      bold: true
+    },
+    width: 600,
+    height: 400,
+    bar: {groupWidth: "70%"},
+    legend: { position: "none" },
+  };
+  var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+  chart.draw(data, options);
 }

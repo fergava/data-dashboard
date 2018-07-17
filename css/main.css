@@ -139,6 +139,14 @@ header {
 .selectors {
 	height: 500px;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.graphics {
+	height: 500px;
+	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;

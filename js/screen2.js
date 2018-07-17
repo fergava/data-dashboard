@@ -54,8 +54,8 @@ function addStudents() {
 
     name.innerHTML = student.name;
     photo.src = student.photo;
-    gradeTech.innerHTML = calcTech(student) + "%";
-    gradeHse.innerHTML = calcHSE(student) + "%";
+    gradeTech.innerHTML = (!isNaN(calcTech(student))) ? calcTech(student) + "%" : "0%";
+    gradeHse.innerHTML = (!isNaN(calcHSE(student))) ? calcHSE(student) + "%" : "0%";
     valueStatus.innerHTML = (student.active) ? 'Ativa' : 'Inativa';
 
     setName.appendChild(name);
