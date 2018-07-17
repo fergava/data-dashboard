@@ -1,3 +1,5 @@
+// PAGE 2 - SCREEN1.html
+
 var localMenu = localStorage.getItem('localMenu');
 var yearClassMenu = localStorage.getItem('yearClassMenu');
 
@@ -13,48 +15,9 @@ google.charts.load('current', {
   'packages': ['corechart']
 });
 
-// grafico pizza
+//grafico 1 (pizza) - Ativas e Inativas por sede
 google.charts.setOnLoadCallback(drawChartPizza);
-google.charts.setOnLoadCallback(drawChart);
-google.charts.setOnLoadCallback(drawBarChart);
 
-function drawChartPizza() {
-  var data = new google.visualization.DataTable();
-  data.addColumn("string", "Status");
-  data.addColumn("number", "Qts");
-  data.addRows(printActiveStudents());
-  var options = {
-    title: 'Média de alunas inscritas',
-    titleTextStyle: {
-      fontSize: 14,
-      bold: true
-    },
-    "width": 400,
-    "height": 300,
-    "colors": ["#FFE521", "#CD2626"]
-  };
-  var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
-  chart.draw(data, options);
-}
-
-function drawChart() {
-  var data = google.visualization.arrayToDataTable(averageGeneral());
-  var options = {
-    title: 'Quantidade de alunas acima da média em todos os sprints',
-    titleTextStyle: {
-      fontSize: 14,
-      bold: true
-    },
-    curveType: 'function',
-    legend: {
-      position: 'bottom'
-    }
-  };
-  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-  chart.draw(data, options);
-}
-
-//Funcao para gerar grafico 1 (ativas e inativas por sede)
 function printActiveStudents() {
 
   var active = 0;
@@ -74,7 +37,27 @@ function printActiveStudents() {
   return arr;
 }
 
-//Funcao para gerar grafico 2 (>70%)
+function drawChartPizza() {
+  var data = new google.visualization.DataTable();
+  data.addColumn("string", "Status");
+  data.addColumn("number", "Qts");
+  data.addRows(printActiveStudents());
+  var options = {
+    title: 'Média de alunas inscritas',
+    titleTextStyle: {
+      fontSize: 14,
+      bold: true
+    },
+    "width": 400,
+    "height": 300,
+    "colors": ["#FFE521", "#CD2626"]
+  };
+  var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
+  chart.draw(data, options);
+}
+// grafico 2 (linha) - maiores de 70% tech e hse por sprints
+google.charts.setOnLoadCallback(drawChart);
+
 function averageGeneral() {
 
   var sp1 = 0;
@@ -130,7 +113,25 @@ function calcHseSprint(sprint) {
   return percent.toFixed(1);
 }
 
-//Funcao gerar grafico 3 (NPS)
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(averageGeneral());
+  var options = {
+    title: 'Quantidade de alunas acima da média em todos os sprints',
+    titleTextStyle: {
+      fontSize: 14,
+      bold: true
+    },
+    curveType: 'function',
+    legend: {
+      position: 'bottom'
+    }
+  };
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  chart.draw(data, options);
+}
+
+//grafico 3 (barra) - NPS
+google.charts.setOnLoadCallback(drawBarChart);
 
 function calcNps(){
   var sprint = 0;
@@ -153,7 +154,6 @@ function calcNps(){
     ['Passive',(passive/sprint)],
     ['Detractors',(detractors/sprint)]
   ];
-
   return arr;
 }
 
