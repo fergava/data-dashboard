@@ -7,12 +7,13 @@ html {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
+	overflow-x: hidden;
 }
 
 /* CABEÇALHO */
 
 header {
-	height: 80px;
+	height: 100px;
 	background-color:#E6E6FA;
 	display: flex;
 	justify-content: space-between;
@@ -42,8 +43,8 @@ header {
 	background-image: url("../assets/images/profile-vanessa.jpg");
 	background-size: cover;
 	cursor: pointer;
-	/*position: absolute;*/
-	/*z-index: 1;*/
+	/* position: absolute; */
+	/* z-index: 1; */
 	/*border: 1px solid red;*/
 }
 
@@ -58,28 +59,30 @@ header {
 }
 
 .barra {
-	background-color: #E6E6FA;
 	height: 215px;
 	width: 160px;
 	position: absolute;
 	right: -160px;
-	/*transition: all .5s linear;*/
+	/* transition: all .10s linear; */
+	z-index: 500;
 	display: none;
 }
 
 .hiddenNav {
 	width: 100%;
 	position: absolute;
+	background-color: #E6E6FA;
 }
 
 .link {
 	padding: 18px;
 	font-size: 12px;
 	text-decoration: none;
+	z-index: 501;
 	/*text-align: center;*/
-	/*transition: .3s linear;*/
+	/* transition: .5s linear; */
 	color: black;
-	border-bottom: 2px solid #9595EA;
+	border: 2px solid #9595EA;
 }
 
 .link:hover {
