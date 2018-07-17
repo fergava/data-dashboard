@@ -1,3 +1,5 @@
+// PAGE 3 - SCREEN2.HTML
+
 var localMenu = localStorage.getItem('localMenu');
 var yearClassMenu = localStorage.getItem('yearClassMenu');
 

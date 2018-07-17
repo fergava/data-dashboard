@@ -11,6 +11,12 @@ var selectedLocal = document.querySelector("#selectedLocal");
 
 selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
 
+// PARA CRIAR DIVS E PRINTAR DADOS
+
+// function addDate() {
+
+// }
+
 google.charts.load('current', {
   'packages': ['corechart']
 });
@@ -34,6 +40,51 @@ function printActiveStudents() {
     ["Ativas", active],
     ["Inativas", inactive]
   ];
+  // printando os dados antes do grafico
+
+  // pegar a div do html para manipular
+  var dateDiv = document.querySelector(".dateDiv1");
+
+  // criar nome da seção
+    var sectionName = document.createElement("h1");
+    sectionName.innerHTML = "Alunas inscritas"
+    dateDiv.appendChild(sectionName);
+
+    // criar div drop pra colocar 2 dados: numero e leganda
+    var divActive = document.createElement("div"); 
+      // p - Numero
+      var intoBoxActiveP1 = document.createElement("h2");
+      intoBoxActiveP1.innerHTML = active;
+      divActive.appendChild(intoBoxActiveP1);
+      // p - legenda
+      var intoBoxActiveP2 = document.createElement("small");
+      intoBoxActiveP2.innerHTML = "Alunas Ativas";
+      divActive.appendChild(intoBoxActiveP2);
+  // colocar dentro da div do html
+  dateDiv.appendChild(divActive);
+
+  // calculos drop
+  var studentsTotal = (active + inactive);
+  var drop = (inactive / studentsTotal) * 100 ;
+
+  // pegar a div do html para manipular
+  var dateDiv = document.querySelector(".dateDiv1");
+
+    // criar div drop pra colocar 2 dados: numero e leganda
+    var divDrop = document.createElement("div"); 
+      
+      // p - Numero
+      var intoBoxP1 = document.createElement("h2");
+      intoBoxP1.innerHTML = drop.toFixed(1);
+      divDrop.appendChild(intoBoxP1);
+      // p - legenda
+      var intoBoxP2 = document.createElement("small");
+      intoBoxP2.innerHTML = "Desistentes";
+      divDrop.appendChild(intoBoxP2);
+
+  // colocar dentro da div do html
+  dateDiv.appendChild(divDrop);
+
   return arr;
 }
 
@@ -55,6 +106,7 @@ function drawChartPizza() {
   var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
   chart.draw(data, options);
 }
+
 // grafico 2 (linha) - maiores de 70% tech e hse por sprints
 google.charts.setOnLoadCallback(drawChart);
 

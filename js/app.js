@@ -62,6 +62,4 @@ function sendData() {
 	}
 }
 
-
-
 // console.log(data);
