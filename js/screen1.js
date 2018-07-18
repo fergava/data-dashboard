@@ -39,30 +39,14 @@ function printActiveStudents() {
   var dateDiv1 = document.querySelector(".dateDiv1");
   var dateName1 = document.querySelector(".dateName1");
   // criar nome da seção
-<<<<<<< HEAD
-    var sectionName = document.createElement("h1");
-    sectionName.innerHTML = "ALUNAS INSCRITAS";
-    sectionName.className = "dateNameStyle";
-    dateName1.appendChild(sectionName);
-
-    // criar div drop pra colocar 2 dados: numero e leganda
-    var divActive = document.createElement("div");
-    divActive.className = "dateContainer"; 
-      // p - Numero
-      var intoBoxActiveP1 = document.createElement("h2");
-      intoBoxActiveP1.innerHTML = active;
-      divActive.appendChild(intoBoxActiveP1);
-      // p - legenda
-      var intoBoxActiveP2 = document.createElement("small");
-      intoBoxActiveP2.innerHTML = "Alunas Ativas";
-      divActive.appendChild(intoBoxActiveP2);
-=======
   var sectionName = document.createElement("h1");
-  sectionName.innerHTML = "Alunas inscritas"
-  dateDiv.appendChild(sectionName);
+  sectionName.innerHTML = "ALUNAS INSCRITAS";
+  sectionName.className = "dateNameStyle";
+  dateName1.appendChild(sectionName);
 
   // criar div drop pra colocar 2 dados: numero e leganda
   var divActive = document.createElement("div");
+  divActive.className = "dateContainer";
   // p - Numero
   var intoBoxActiveP1 = document.createElement("h2");
   intoBoxActiveP1.innerHTML = active;
@@ -71,32 +55,17 @@ function printActiveStudents() {
   var intoBoxActiveP2 = document.createElement("small");
   intoBoxActiveP2.innerHTML = "Alunas Ativas";
   divActive.appendChild(intoBoxActiveP2);
->>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
+
   // colocar dentro da div do html
   dateDiv1.appendChild(divActive);
 
   // calculos drop
   var studentsTotal = (active + inactive);
-<<<<<<< HEAD
-  var drop = (inactive / studentsTotal) * 100 ;
-
-    // criar div drop pra colocar 2 dados: numero e leganda
-    var divDrop = document.createElement("div");
-    divDrop.className = "dateContainer"; 
-      
-      // p - Numero
-      var intoBoxP1 = document.createElement("h2");
-      intoBoxP1.innerHTML = drop.toFixed(1);
-      divDrop.appendChild(intoBoxP1);
-      // p - legenda
-      var intoBoxP2 = document.createElement("small");
-      intoBoxP2.innerHTML = "Desistentes";
-      divDrop.appendChild(intoBoxP2);
-=======
   var drop = (inactive / studentsTotal) * 100;
 
   // criar div drop pra colocar 2 dados: numero e leganda
   var divDrop = document.createElement("div");
+  divDrop.className = "dateContainer";
 
   // p - Numero
   var intoBoxP1 = document.createElement("h2");
@@ -106,7 +75,6 @@ function printActiveStudents() {
   var intoBoxP2 = document.createElement("small");
   intoBoxP2.innerHTML = "Desistentes";
   divDrop.appendChild(intoBoxP2);
->>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
 
   // colocar dentro da div do html
   dateDiv1.appendChild(divDrop);
@@ -120,8 +88,8 @@ function drawChartPizza() {
   data.addColumn("number", "Qts");
   data.addRows(printActiveStudents());
   var options = {
-  
-  
+
+
     "width": 400,
     "height": 300,
     "colors": ["#FFE521", "#CD2626"]
@@ -146,10 +114,11 @@ function averageGeneral() {
     arr.push(["SP" + i, 0]);
   }
 
+  var totalStudentsAvg = 0;
+  var totalStudents = 0;
   for (student of data[localMenu][yearClassMenu]["students"]) {
-    console.log(student)
+   
     for (sprint of student.sprints) {
-      // console.log(sprint.number);
 
       if (student.active === true) {
         if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
@@ -167,98 +136,55 @@ function averageGeneral() {
               arr[4][1] += 1;
               break;
           }
-        }
+          totalStudentsAvg ++;
+          totalStudents ++;
+        }        
       }
     }
   }
 
-<<<<<<< HEAD
   // printando os dados antes do grafico
   // pegar a div do html para manipular
   var dateDiv2 = document.querySelector(".dateDiv2");
   var dateName2 = document.querySelector(".dateName2");
   // criar nome da seção
-    var sectionName = document.createElement("h1");
-    sectionName.innerHTML = "ALUNAS EM DESTAQUE";
-    sectionName.className = "dateNameStyle";
-    dateName2.appendChild(sectionName);
+  var sectionName = document.createElement("h1");
+  sectionName.innerHTML = "ALUNAS EM DESTAQUE";
+  sectionName.className = "dateNameStyle";
+  dateName2.appendChild(sectionName);
 
-    // conta média
-    var sprintMedia = arr[i] / sprintSize;
+  // conta média
+  var sprintMedia = totalStudentsAvg / sprintSize;
 
-    // criar div total number pra colocar 2 dados: numero e leganda
-    var divTotalNumber = document.createElement("div");
-    divTotalNumber.className = "dateContainer"; 
-      // p - Numero
-      var intoBoxActiveP1 = document.createElement("h2");
-      intoBoxActiveP1.innerHTML = sprintMedia;
-      divTotalNumber.appendChild(intoBoxActiveP1);
-      // p - legenda
-      var intoBoxActiveP2 = document.createElement("small");
-      intoBoxActiveP2.innerHTML = "Aluna(s) contemplam essa média.";
-      divTotalNumber.appendChild(intoBoxActiveP2);
+  // criar div total number pra colocar 2 dados: numero e leganda
+  var divTotalNumber = document.createElement("div");
+  divTotalNumber.className = "dateContainer";
+  // p - Numero
+  var intoBoxActiveP1 = document.createElement("h2");
+  intoBoxActiveP1.innerHTML = sprintMedia.toFixed(1);
+  divTotalNumber.appendChild(intoBoxActiveP1);
+  // p - legenda
+  var intoBoxActiveP2 = document.createElement("small");
+  intoBoxActiveP2.innerHTML = "Aluna(s) contemplam essa média.";
+  divTotalNumber.appendChild(intoBoxActiveP2);
   // colocar dentro da div do html
   dateDiv2.appendChild(divTotalNumber);
 
-    // criar div drop pra colocar 2 dados: numero e leganda
-    var divTotalNumberPercent = document.createElement("div"); 
-    divTotalNumberPercent.className = "dateContainer";  
-      // p - Numero
-      var intoBoxP1 = document.createElement("h2");
-      intoBoxP1.innerHTML = sprintMedia * 100;
-      divTotalNumberPercent.appendChild(intoBoxP1);
-      // p - legenda
-      var intoBoxP2 = document.createElement("small");
-      intoBoxP2.innerHTML = "Porcento do Total de " + (sprintMedia * 100);
-      divTotalNumberPercent.appendChild(intoBoxP2);
+  // criar div drop pra colocar 2 dados: numero e leganda
+  var divTotalNumberPercent = document.createElement("div");
+  divTotalNumberPercent.className = "dateContainer";
+  // p - Numero
+  var intoBoxP1 = document.createElement("h2");
+  intoBoxP1.innerHTML = Math.round((sprintMedia * 100) / totalStudents) + '%';
+  divTotalNumberPercent.appendChild(intoBoxP1);
+  // p - legenda
+  var intoBoxP2 = document.createElement("small");
+  intoBoxP2.innerHTML = "Porcento do Total de " + totalStudents;
+  divTotalNumberPercent.appendChild(intoBoxP2);
 
   // colocar dentro da div do html
   dateDiv2.appendChild(divTotalNumberPercent);
-=======
 
-  console.log(arr);
-
-  // printando os dados antes do grafico
-  // pegar a div do html para manipular
-  // var dateDiv2 = document.querySelector(".dateDiv2");
-
-  // // criar nome da seção
-  //   var sectionName = document.createElement("h1");
-  //   sectionName.innerHTML = "Alunas em Destaque > 70% em Tech e HSE"
-  //   dateDiv2.appendChild(sectionName);
-
-  //   // conta média
-  //   var sprintMedia = parseInt((sp1 + sp2 + sp3 + sp4) / 4);
-  //   // console.log(sprintMedia)
-
-  //   // criar div total number pra colocar 2 dados: numero e leganda
-  //   var divTotalNumber = document.createElement("div"); 
-  //     // p - Numero
-  //     var intoBoxActiveP1 = document.createElement("h2");
-  //     intoBoxActiveP1.innerHTML = sprintMedia;
-  //     divTotalNumber.appendChild(intoBoxActiveP1);
-  //     // p - legenda
-  //     var intoBoxActiveP2 = document.createElement("small");
-  //     intoBoxActiveP2.innerHTML = "Alunas contemplam essa média.";
-  //     divTotalNumber.appendChild(intoBoxActiveP2);
-  // // colocar dentro da div do html
-  // dateDiv2.appendChild(divTotalNumber);
-
-  //   // criar div drop pra colocar 2 dados: numero e leganda
-  //   var divTotalNumberPercent = document.createElement("div"); 
-
-  //     // p - Numero
-  //     var intoBoxP1 = document.createElement("h2");
-  //     intoBoxP1.innerHTML = sprintMedia * 100;
-  //     divTotalNumberPercent.appendChild(intoBoxP1);
-  //     // p - legenda
-  //     var intoBoxP2 = document.createElement("small");
-  //     intoBoxP2.innerHTML = "Porcento do Total de " + (sprintMedia * 100);
-  //     divTotalNumberPercent.appendChild(intoBoxP2);
-
-  // // colocar dentro da div do html
-  // dateDiv2.appendChild(divTotalNumberPercent);
->>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
 
   return arr;
 }
@@ -276,7 +202,7 @@ function calcHseSprint(sprint) {
 function drawChart() {
   var data = google.visualization.arrayToDataTable(averageGeneral());
   var options = {
-    
+
     curveType: 'function',
     legend: {
       position: 'bottom'
@@ -307,13 +233,8 @@ function calcNps() {
     ['Name', '%'],
     ['NPS', (totalNps / sprint)],
     ['Promoters', (promoters / sprint)],
-<<<<<<< HEAD
-    ['Passive',(passive / sprint)],
-    ['Detractors',(detractors / sprint)]
-=======
     ['Passive', (passive / sprint)],
     ['Detractors', (detractors / sprint)]
->>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
   ];
 
   // printando os dados antes do grafico
@@ -321,45 +242,45 @@ function calcNps() {
   var dateDiv3 = document.querySelector(".dateDiv3");
   var dateName3 = document.querySelector(".dateName3");
   // criar nome da seção
-    var sectionName = document.createElement("h1");
-    sectionName.innerHTML = "NET PROMOTER SCORE";
-    sectionName.className = "dateNameStyle";
-    dateName3.appendChild(sectionName);
+  var sectionName = document.createElement("h1");
+  sectionName.innerHTML = "NET PROMOTER SCORE";
+  sectionName.className = "dateNameStyle";
+  dateName3.appendChild(sectionName);
 
-    // conta porcentagem
-    var totalAnswer = promoters + passive + detractors;
-    var cumulativeNPS = (promoters - detractors);
-    var cumulativeNPSpercent = (cumulativeNPS / totalAnswer) * 100;
-    
-    // criar div cumulativeNPS pra colocar 2 dados: numero e leganda
-    var divCumulativeNPS = document.createElement("div");
-    divCumulativeNPS.className = "dateContainer"; 
-      // p - Numero
-      var intoBoxActiveP1 = document.createElement("h2");
-      intoBoxActiveP1.innerHTML = cumulativeNPSpercent.toFixed(1);
-      divCumulativeNPS.appendChild(intoBoxActiveP1);
-      // p - legenda
-      var intoBoxActiveP2 = document.createElement("small");
-      intoBoxActiveP2.innerHTML = "% cumulativa de NPS";
-      divCumulativeNPS.appendChild(intoBoxActiveP2);
+  // conta porcentagem
+  var totalAnswer = promoters + passive + detractors;
+  var cumulativeNPS = (promoters - detractors);
+  var cumulativeNPSpercent = (cumulativeNPS / totalAnswer) * 100;
+
+  // criar div cumulativeNPS pra colocar 2 dados: numero e leganda
+  var divCumulativeNPS = document.createElement("div");
+  divCumulativeNPS.className = "dateContainer";
+  // p - Numero
+  var intoBoxActiveP1 = document.createElement("h2");
+  intoBoxActiveP1.innerHTML = cumulativeNPSpercent.toFixed(1);
+  divCumulativeNPS.appendChild(intoBoxActiveP1);
+  // p - legenda
+  var intoBoxActiveP2 = document.createElement("small");
+  intoBoxActiveP2.innerHTML = "% cumulativa de NPS";
+  divCumulativeNPS.appendChild(intoBoxActiveP2);
   // colocar dentro da div do html
   dateDiv3.appendChild(divCumulativeNPS);
 
   // criar div pra colocar 3 dados:  promoter passive e detrectors
-    var divTotalNumberPercent = document.createElement("div"); 
-    divTotalNumberPercent.className = "dateContainer";  
-      // p - 
-      var intoBoxP1 = document.createElement("p");
-      intoBoxP1.innerHTML = ((promoters / totalAnswer) * 100).toFixed(1) + " % Promoters";
-      divTotalNumberPercent.appendChild(intoBoxP1);
-      // p - 
-      var intoBoxP2 = document.createElement("p");
-      intoBoxP2.innerHTML = ((passive / totalAnswer) * 100).toFixed(1) + " % Passive";
-      divTotalNumberPercent.appendChild(intoBoxP2);
-      // p
-      var intoBoxP3 = document.createElement("p");
-      intoBoxP3.innerHTML = ((detractors / totalAnswer) * 100).toFixed(1) + " % Detrectors";
-      divTotalNumberPercent.appendChild(intoBoxP3);
+  var divTotalNumberPercent = document.createElement("div");
+  divTotalNumberPercent.className = "dateContainer";
+  // p - 
+  var intoBoxP1 = document.createElement("p");
+  intoBoxP1.innerHTML = ((promoters / totalAnswer) * 100).toFixed(1) + " % Promoters";
+  divTotalNumberPercent.appendChild(intoBoxP1);
+  // p - 
+  var intoBoxP2 = document.createElement("p");
+  intoBoxP2.innerHTML = ((passive / totalAnswer) * 100).toFixed(1) + " % Passive";
+  divTotalNumberPercent.appendChild(intoBoxP2);
+  // p
+  var intoBoxP3 = document.createElement("p");
+  intoBoxP3.innerHTML = ((detractors / totalAnswer) * 100).toFixed(1) + " % Detrectors";
+  divTotalNumberPercent.appendChild(intoBoxP3);
 
   // colocar dentro da div do html
   dateDiv3.appendChild(divTotalNumberPercent);
@@ -371,25 +292,12 @@ function calcNps() {
 function drawBarChart() {
   var data = google.visualization.arrayToDataTable(calcNps());
   var options = {
-<<<<<<< HEAD
-        
-    bar: {groupWidth: "70%"},
-    legend: { position: "none" },
-=======
-    title: "NPS médio dos sprints",
-    titleTextStyle: {
-      fontSize: 14,
-      bold: true
-    },
-    width: 600,
-    height: 400,
     bar: {
       groupWidth: "70%"
     },
     legend: {
       position: "none"
     },
->>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
   };
   var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
   chart.draw(data, options);
@@ -483,7 +391,7 @@ function drawPieChartTech() {
   var data = google.visualization.arrayToDataTable(avgTechStudents());
 
   var options = {
-    
+
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: 'black',
@@ -565,7 +473,7 @@ function studentSatisfactionData() {
   for (var i = 1; i <= sprintSize; i++) {
     array.push(["SP" + i, 0]);
   }
-  
+
   var x = 1;
   var avgSs = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
@@ -575,14 +483,14 @@ function studentSatisfactionData() {
   }
 
   var studentSatisfactionInfo = document.getElementById('studentSatisfactionInfo');
-  var totalAlunas = data[localMenu][yearClassMenu].students.length; 
+  var totalAlunas = data[localMenu][yearClassMenu].students.length;
 
-  avgSs = (avgSs/sprintSize);
-  
+  avgSs = (avgSs / sprintSize);
+
   var totalSs = (avgSs * totalAlunas) / 100;
 
   studentSatisfactionInfo.innerHTML = Math.round(totalSs);
-  
+
   return array;
 }
 
@@ -616,7 +524,7 @@ function teacherRatingData() {
   for (var i = 1; i <= sprintSize; i++) {
     array.push(["SP" + i, 0]);
   }
-  
+
   var x = 1;
   var avgTr = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
@@ -625,7 +533,7 @@ function teacherRatingData() {
     x++;
   }
 
-  avgTr = (avgTr/sprintSize);
+  avgTr = (avgTr / sprintSize);
 
   var teacherRatingInfo = document.getElementById('teacherRatingInfo');
   teacherRatingInfo.innerHTML = avgTr.toFixed(1);
@@ -662,7 +570,7 @@ function jediMasterRatingData() {
   for (var i = 1; i <= sprintSize; i++) {
     array.push(["SP" + i, 0]);
   }
-  
+
   var x = 1;
   var avgJmr = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
@@ -671,11 +579,11 @@ function jediMasterRatingData() {
     x++;
   }
 
-  avgJmr = (avgJmr/sprintSize);
+  avgJmr = (avgJmr / sprintSize);
 
   var jediMasterRatingInfo = document.getElementById('jediMasterRatingInfo');
   jediMasterRatingInfo.innerHTML = avgJmr.toFixed(1);
-  
+
   return array;
 }
 
