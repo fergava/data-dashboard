@@ -21,11 +21,11 @@ function createOptions1() {
 	yearClassOptions.value = "none";
 	yearClassMenu.appendChild(yearClassOptions);
 
-		for (local in data) {
-			var localItem = document.createElement("option");
-			localItem.value = local;
-			localItem.innerHTML = local;
-			localMenu.appendChild(localItem);
+	for (local in locals) {
+		var localItem = document.createElement("option");
+		localItem.value = local;
+		localItem.innerHTML = locals[local];
+		localMenu.appendChild(localItem);
 	}
 }
 
@@ -34,7 +34,7 @@ localMenu.addEventListener("change", createOptions2);
 function createOptions2() {
 	var local = localMenu.value;
 	yearClassMenu.innerHTML = "";
-	
+
 	var yearClassOptions = document.createElement("option");
 	yearClassOptions.innerHTML = "Ano - Turma";
 	yearClassOptions.value = "none";
@@ -53,7 +53,7 @@ var continueButton = document.querySelector("#continueButton");
 continueButton.addEventListener("click", sendData);
 
 function sendData() {
-	if(localMenu.value === 'none' || yearClassMenu.value === 'none'){
+	if (localMenu.value === 'none' || yearClassMenu.value === 'none') {
 		alert('selectione algo');
 	} else {
 		localStorage.setItem('localMenu', localMenu.value);

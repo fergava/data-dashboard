@@ -9,7 +9,7 @@ if (!localMenu || !yearClassMenu) {
 
 var selectedLocal = document.querySelector("#selectedLocal");
 
-selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
+selectedLocal.innerHTML = locals[localMenu] + ' - ' + yearClassMenu;
 
 google.charts.load('current', {
   'packages': ['corechart']
@@ -115,10 +115,8 @@ function averageGeneral() {
   var totalStudentsAvg = 0;
   var totalStudents = 0;
   for (student of data[localMenu][yearClassMenu]["students"]) {
-   
-    for (sprint of student.sprints) {
-
-      if (student.active === true) {
+    if (student.active === true) {
+      for (sprint of student.sprints) {      
         if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
           switch (sprint.number) {
             case 1:
@@ -313,8 +311,8 @@ function loadSelect() {
   for (var i = 1; i <= sprintSize; i++) {
     var localOptionsTech = document.createElement("option");
     var localOptionsHse = document.createElement("option");
-    localOptionsTech.innerHTML = "SP" + i;
-    localOptionsHse.innerHTML = "SP" + i;
+    localOptionsTech.innerHTML = "Sprint " + i;
+    localOptionsHse.innerHTML = "Sprint " + i;
     localOptionsTech.value = i - 1;
     localOptionsHse.value = i - 1;
     selectSprintTech.appendChild(localOptionsTech);
@@ -361,9 +359,11 @@ function avgTechStudents() {
   var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-    if (student.sprints[sprint].score.tech >= 1260) {
-      qtd++;
-    }
+    if(true === student.active){
+      if (student.sprints[sprint].score.tech >= 1260) {
+        qtd++;
+      }
+    }    
   }
 
   pct = (qtd / total) * 100;
@@ -420,9 +420,11 @@ function avgHseStudents() {
   var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-    if (student.sprints[sprint].score.hse >= 840) {
-      qtd++;
-    }
+    if(true === student.active){
+      if (student.sprints[sprint].score.hse >= 840) {
+        qtd++;
+      }
+    }    
   }
 
   pct = (qtd / total) * 100;
@@ -534,7 +536,7 @@ function teacherRatingData() {
   avgTr = (avgTr / sprintSize);
 
   var teacherRatingInfo = document.getElementById('teacherRatingInfo');
-  teacherRatingInfo.innerHTML = avgTr.toFixed(1);
+  teacherRatingInfo.innerHTML = avgTr.toFixed(2);
 
   return array;
 }
