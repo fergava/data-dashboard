@@ -20,6 +20,24 @@ header {
 	align-items: center;
 }
 
+.alert-hidden {
+	display: none;
+}
+.alert {
+	background-color: #FFE521;
+	width: 40%;
+	height: 50px;
+	font-size: 24px;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	margin: 50px 30% 20px 30%;
+}
+
+.alert-text{
+	align-self: center;
+}
+
 .icon-calendar {
 	font-size: 50px;
 }
@@ -140,11 +158,12 @@ header {
 
 /*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
 .selectors {
-	height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 50px;
+	margin-top: 50px
 }
 
 #localChoose {
