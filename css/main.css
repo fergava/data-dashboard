@@ -11,14 +11,6 @@ html {
 	height: 100%;
 }
 
-body {
-	height: 100%;
-}
-
-body {
-	height: 100%;
-}
-
 /* CABEÇALHO */
 
 header {
@@ -174,13 +166,13 @@ header {
 /*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
 
 .selectors {
+	height: 380px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50px;
 	margin-top: 50px;
-	position: relative;
 }
 
 #localChoose {
@@ -311,9 +303,8 @@ footer {
 	height: 50px;
 	background-color: #E6E6FA;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
-	position: absolute;
 	bottom: 0;
 	width: 100%;
 }
