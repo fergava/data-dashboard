@@ -1,3 +1,10 @@
+var locals = {
+  'AQP': 'Arequipa',
+  'CDMX': 'Cidade do México',
+  'LIM': 'Lima',
+  'SCL':'Santiago'
+}
+
 var data = {
   'AQP': {
     '2016-2': {

@@ -9,7 +9,7 @@ if (!localMenu || !yearClassMenu) {
 
 var selectedLocal = document.querySelector("#selectedLocal");
 
-selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
+selectedLocal.innerHTML = locals[localMenu] + ' - ' + yearClassMenu;
 
 var students = document.querySelector(".students");
 

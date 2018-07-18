@@ -9,7 +9,7 @@ if (!localMenu || !yearClassMenu) {
 
 var selectedLocal = document.querySelector("#selectedLocal");
 
-selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
+selectedLocal.innerHTML = locals[localMenu] + ' - ' + yearClassMenu;
 
 google.charts.load('current', {
   'packages': ['corechart']
@@ -313,8 +313,8 @@ function loadSelect() {
   for (var i = 1; i <= sprintSize; i++) {
     var localOptionsTech = document.createElement("option");
     var localOptionsHse = document.createElement("option");
-    localOptionsTech.innerHTML = "SP" + i;
-    localOptionsHse.innerHTML = "SP" + i;
+    localOptionsTech.innerHTML = "Sprint " + i;
+    localOptionsHse.innerHTML = "Sprint " + i;
     localOptionsTech.value = i - 1;
     localOptionsHse.value = i - 1;
     selectSprintTech.appendChild(localOptionsTech);
