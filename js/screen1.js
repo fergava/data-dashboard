@@ -261,15 +261,12 @@ function drawBarChart() {
   chart.draw(data, options);
 }
 
-//Gráfico 4 - Tech Skills
-
+// --------- Populando os Selects
 
 var selectSprintTech = document.getElementById('selectSprintTech');
 var selectSprintHse = document.getElementById('selectSprintHse');
 
 window.onload = loadSelect();
-window.onload = drawChartStudentsScoresTech();
-window.onload = drawChartStudentsScoresHse();
 
 function loadSelect() {
   var sprintSize = data[localMenu][yearClassMenu].ratings.length;
@@ -285,20 +282,15 @@ function loadSelect() {
   }
 }
 
+//Gráfico 4 - Tech
+window.onload = drawChartStudentsScoresTech();
 selectSprintTech.addEventListener('change', avgTechStudents);
 selectSprintTech.addEventListener('change', drawChartStudentsScoresTech);
-selectSprintHse.addEventListener('change', avgHseStudents);
-selectSprintHse.addEventListener('change', drawChartStudentsScoresHse);
+
 
 function drawChartStudentsScoresTech() {
   google.charts.setOnLoadCallback(drawPieChartTech);
 }
-
-function drawChartStudentsScoresHse() {
-  google.charts.setOnLoadCallback(drawPieChartHse);
-}
-
-
 
 // Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
 function avgTechStudents() {
@@ -333,7 +325,6 @@ function avgTechStudents() {
   ];
 }
 
-
 function drawPieChartTech() {
 
   var data = google.visualization.arrayToDataTable(avgTechStudents());
@@ -348,6 +339,16 @@ function drawPieChartTech() {
 
   var chart = new google.visualization.PieChart(document.getElementById('donutchartTech'));
   chart.draw(data, options);
+}
+
+
+//Gráfico 5 - Tech
+window.onload = drawChartStudentsScoresHse();
+selectSprintHse.addEventListener('change', avgHseStudents);
+selectSprintHse.addEventListener('change', drawChartStudentsScoresHse);
+
+function drawChartStudentsScoresHse() {
+  google.charts.setOnLoadCallback(drawPieChartHse);
 }
 
 // Qtd e Porcentagem de alunas com media > 70 por sprint em HSE
@@ -400,8 +401,7 @@ function drawPieChartHse() {
 }
 
 
-var studentSatisfactionInfo = document.getElementById('studentSatisfactionInfo');
-var studentSatisfactionGraphic = document.getElementById('studentSatisfactionGraphic');
+// ----- Grafico 6 -  Estudantes Satisfeitas por Sprint em %
 
 function studentSatisfactionData() {
 
@@ -415,7 +415,7 @@ function studentSatisfactionData() {
   }
   
   var x = 1;
-  var avgSs = 0
+  var avgSs = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
     array[x][1] += (rating.student.cumple + rating.student.supera);
     avgSs += (rating.student.cumple + rating.student.supera);
@@ -452,9 +452,7 @@ function drawLineChartStudentSatisfaction() {
   chart.draw(data, options);
 }
 
-
-var teacherRatingInfo = document.getElementById('teacherRatingInfo');
-var teacherRatingGraphic = document.getElementById('teacherRatingGraphic');
+// ----- Grafico 7 - Nota dos professores por sprint
 
 function teacherRatingData() {
 
@@ -468,10 +466,17 @@ function teacherRatingData() {
   }
   
   var x = 1;
+  var avgTr = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
     array[x][1] += rating.teacher;
+    avgTr += rating.teacher;
     x++;
   }
+
+  avgTr = (avgTr/sprintSize);
+
+  var teacherRatingInfo = document.getElementById('teacherRatingInfo');
+  teacherRatingInfo.innerHTML = avgTr.toFixed(1);
 
   return array;
 }
@@ -494,10 +499,7 @@ function drawLineChartTeacherRating() {
   chart.draw(data, options);
 }
 
-
-
-var jediMasterRatingInfo = document.getElementById('jediMasterRatingInfo');
-var jediMasterRatingGraphic = document.getElementById('jediMasterRatingGraphic');
+// ----- Grafico 8 - Nota dos mentores por sprint
 
 function jediMasterRatingData() {
   var sprintSize = data[localMenu][yearClassMenu].ratings.length;
@@ -510,10 +512,17 @@ function jediMasterRatingData() {
   }
   
   var x = 1;
+  var avgJmr = 0;
   for (rating of data[localMenu][yearClassMenu]["ratings"]) {
     array[x][1] += rating.jedi;
+    avgJmr += rating.jedi;
     x++;
   }
+
+  avgJmr = (avgJmr/sprintSize);
+
+  var jediMasterRatingInfo = document.getElementById('jediMasterRatingInfo');
+  jediMasterRatingInfo.innerHTML = avgJmr.toFixed(1);
   
   return array;
 }
