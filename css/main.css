@@ -294,56 +294,79 @@ a {
 	color: #9595ea;
 }
 
-/*SCREEN 1--------------------*/
-
-/*.divMix, .divActive, .divInactive {
-	border: 1px solid red;
-}*/
-
-.mainNav {
-	height: 50px;
-	border: 1px solid yellow;
-}
-
-/*.activeStudents, .active, .inactive {
-	border: 1px solid red;
-}*/
-
 /*SCREEN 1 - GRAFICOS*/
 
 .directionGraphics {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
-.graphics {
+.graphicsSize1 {
 	width: 400px;
 	height: 400px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	border: 2px solid grey;
+	border: 2px solid #9595EA;
+	border-radius: 15px;
 	margin: 10px;
 }
 
-.dateName1, .dateName2, .dateName3, .dateName4, .dateName5 {
-	border: 1px solid blue;
+.graphicsSize2 {
+	width: 625px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border: 2px solid #9595EA;
+	border-radius: 15px;
+	margin: 10px;
+}
+
+.dataName {
 	font-size: 20px;
 	font-weight: 800;
 	text-align: center;
 	padding: 10px;
 }
 
-.dateDiv1, .dateDiv2, .dateDiv3 {
+.dataDiv {
 	display: flex;
 	justify-content: space-around;
-	margin: 5px;
 }
 
-.dateContainer,  {
-	width: 120px;
-	height: 50px;
-	border: 1px solid green;
+.eachContainerData  {
+	width: 150px;
+	height: 60px;
+	border: 2px solid #9595EA;
+	border-radius: 10px;
+	background-color: #E6E6FA;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.eachContainerData p {
+	align-self: flex-start;
+	margin-left: 10px;
+}
+
+.graphicsH2 {
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px;
+}
+
+.small {
+	font-size: 12px;
+	text-align: center;
+}
+
+.selectDiv {
+	display: flex;
+	justify-content: center;
 }
 
 #selectSprintTech, #selectSprintHse {
@@ -353,11 +376,6 @@ a {
 	text-align-last: center;
 }
 
-#qtdStdLegendTech { 
-
+.promotersP, .passiveP, .detrectorsP {
+	font-size: 16px;
 }
-
-
-
-
-
