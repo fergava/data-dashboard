@@ -1,172 +1,233 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700,800,900" rel="stylesheet">
+    <link href="https://file.myfontastic.com/Sf3bLHBYtyyjc8qKTmPFVK/icons.css" rel="stylesheet">
 
-<head>
-  <meta charset="utf-8">
-  <title>Data Dashboard</title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,700,800,900" rel="stylesheet">
-  <link href="https://file.myfontastic.com/Sf3bLHBYtyyjc8qKTmPFVK/icons.css" rel="stylesheet">
+  </head>
 
-</head>
+  <body>
+    <header>
 
-<body>
-  <header>
-
-    <a href="index.html" target="" id="home" title="Home"></a>
-
-    <div id="schedule">
-      <a href="https://calendar.google.com" target="_blank" title="Google Calendar">
-        <i class="icon-calendar"></i>
-      </a>
-    </div>
-
-    <div class="loginCheck">
-      <input type="checkbox" id="check">
-      <label for="check">
-        <div id="login" title="Configurações"></div>
-      </label>
-      <div class="barra">
-        <nav class="hiddenNav">
-          <div class="link myCount textNav">MINHA CONTA</div>
-          <div class="link textNav">
-            <i class="icon-heart"></i> Vanessa Pinheiro</div>
-          <a href="">
-            <div class="link">
-              <i class="icon-cog"></i> Configurações</div>
-          </a>
-          <a href="">
-            <div class="link">
-              <i class="icon-times"></i> Logout</div>
-          </a>
-        </nav>
+      <a href="index.html" target="" id="home" title="Home"></a>
+      
+      <div id="schedule"><a href="https://calendar.google.com" target="_blank" title="Google Calendar"><i class="icon-calendar"></i></a></div>
+      
+      <div class="loginCheck">
+        <input type="checkbox" id="check">
+        <label for="check"><div id="login" title="Configurações"></div></label>
+        <div class="barra">
+          <nav class="hiddenNav">
+            <div class="link myCount textNav">MINHA CONTA</div>
+            <div class="link textNav"><i class="icon-heart"></i> Vanessa Pinheiro</div>
+            <a href=""><div class="link"><i class="icon-cog"></i> Configurações</div></a>
+            <a href=""><div class="link"><i class="icon-times"></i> Logout</div></a>
+          </nav>
+        </div>
       </div>
-    </div>
 
+    </header>
 
-  </header>
-
-  <section class="submenu">
-    <div class="sedeSelected">
-      <h2 id="selectedLocal"></h2>
-    </div>
-    <div class="screenOption">
-      <a href="screen1.html">
-        <h3>Overview</h3>
-      </a>
-      <a href="screen2.html">
-        <h3>Students</h3>
-      </a>
-      <h3>Teachers</h3>
-    </div>
-  </section>
-
-  <section class="directionGraphics">
-
-    <section class="graphics">
-      <div class="dateName1"></div>
-      <div class="dateDiv1"></div>
-      <div id="chart_div"></div>
+    <section class="submenu">
+      <div class="sedeSelected">
+        <h2 id="selectedLocal"></h2>
+      </div>
+      <div class="screenOption">
+        <a href="screen1.html">
+          <h3>Overview</h3>
+        </a>
+        <a href="screen2.html">
+          <h3>Students</h3>
+        </a>
+        <a href="">
+          <h3>Teachers</h3>
+        </a>
+      </div>
     </section>
 
-    <section class="graphics">
-      <div class="dateName2"></div>
-      <div class="dateDiv2"></div>
-      <div id="curve_chart"></div>
+    <!-- todos os graficos -->
+    <section>
+
+      <!-- seção 3 primeiros graficos -->
+      <section class="directionGraphics">
+      
+        <!-- grafico 1 -->
+        <section class="graphicsSize1"> 
+          <div>
+            <h1 id="dataName1" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxActiveH2 graphicsH2"></h2>
+              <small class="intoBoxActiveSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 class="intoBoxDropH2 graphicsH2"></h2>
+              <small class="intoBoxDropSmall small"></small>
+            </div>
+          </div>
+          <div id="chart_div"></div>
+        </section>
+
+        <!-- grafico 2 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName2" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxMediaH2 graphicsH2"></h2>
+              <small class="intoBoxMediaSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 class="intoBoxPercentH2 graphicsH2"></h2>
+              <small class="intoBoxPercentSmall small"></small>
+            </div>
+          </div>
+          <div id="curve_chart"></div>
+        </section>
+
+        <!-- grafico 3 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName3" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxCumulativeH2 graphicsH2"></h2>
+              <small class="intoBoxCumulativeSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <p class="promotersP"></p>
+              <p class="passiveP"></p>
+              <p class="detrectorsP"></p>
+            </div>
+          </div>
+          <div id="bar_chart"></div>
+        </section>
+      </section>
+
+      <!-- seção 2 graficos do meio -->
+      <section class="directionGraphics">
+        <!-- grafico 4 -->
+        <section class="graphicsSize2">
+          <div>
+            <h1 id="dataName4" class="dataName"></h1>
+          </div>
+          <div class="selectDiv">
+            <select id="selectSprintTech"></select>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="qtdStdTech" class="graphicsH2"></h2>
+              <small id="qtdStdLegendTech" class="small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 id="avgStdTech" class="graphicsH2"></h2>
+              <small id="ttStdTech" class="small"></small>
+            </div>
+          </div>
+          <div id="donutchartTech"></div>
+        </section>
+
+        <!-- grafico 5 -->
+        <section class="graphicsSize2">
+          <div>
+            <h1 id="dataName5" class="dataName"></h1>
+          </div>
+          <div class="selectDiv">
+            <select id="selectSprintHse"></select>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">        
+              <h2 id="qtdStdHse" class="graphicsH2"></h2>
+              <small id="qtdStdLegendHse" class="small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 id="avgStdHse" class="graphicsH2"></h2>
+              <small id="ttStdHse" class="small"></small>
+            </div>
+          </div>
+          <div id="donutchartHse"></div>
+        </section>
+      </section>
+    
+      <!-- seção 3 ultimos graficos -->
+      <section class="directionGraphics">
+        <!-- grafico 6 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName6" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="studentSatisfactionInfoH2" class="graphicsH2"></h2>
+              <small class="studentSatisfactionInfoSmall small"></small>
+            </div>
+          </div>
+          <div id="studentSatisfactionGraphic"></div>        
+        </section>
+        
+        <!-- grafico 7 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName7" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="teacherRatingInfoH2" class="graphicsH2"></h2>
+              <small class="teacherRatingInfoSmall small"></small>
+            </div>
+          </div>
+          <div id="teacherRatingGraphic"></div>
+        </section>
+        
+        <!-- grafico 8 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName8" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="jediMasterRatingInfoH2" class="graphicsH2"></h2>
+              <small class="jediMasterRatingInfoSmall small"></small>
+            </div>
+          </div>
+          <div id="jediMasterRatingGraphic"></div>
+        </section>
+      </section>
+  
     </section>
 
-    <section class="graphics">
-      <div class="dateName3"></div>
-      <div class="dateDiv3"></div>
-      <div id="bar_chart"></div>
-    </section>
 
-    <section class="graphics">
-      <div class="dateName4"></div>
-      <div class="dateDiv4"></div>
-      <div>
-        <select id="selectSprintTech"></select>
-      </div>
-      <div>
-        <p id="qtdStdTech"></p>
-        <p id="qtdStdLegendTech"></p>
-      </div>
-      <div>
-        <p id="avgStdTech"></p>
-        <p id="ttStdTech"></p>
-      </div>
-      <div id="donutchartTech"></div>
-    </section>
+    <footer>
+      <span class="iconsMargin">
+        <a href="https://www.facebook.com/Laboratoriabr/" target="_blank">
+          <i class="icon-facebook-squared icons" title="Facebook"></i>
+        </a>
+      </span>
+      <span class="iconsMargin">
+        <a href="https://www.instagram.com/laboratoriala/" target="_blank">
+          <i class="icon-instagrem icons" title="Instagram"></i>
+        </a>
+      </span>
+      <span class="iconsMargin">
+        <a href="https://twitter.com/laboratoriala" target="_blank">
+          <i class="icon-twitter icons" title="Twitter"></i>
+        </a>
+      </span>
+    </footer>
 
-    <section class="graphics">
-      <div class="dateName5"></div>
-      <div class="dateDiv5"></div>
-      <div>
-        <select id="selectSprintHse"></select>
-      </div>
-      <div>
-        <p id="qtdStdHse"></p>
-        <p id="qtdStdLegendHse"></p>
-      </div>
-      <div>
-        <p id="avgStdHse"></p>
-        <p id="ttStdHse"></p>
-      </div>
-      <div id="donutchartHse"></div>
-    </section>
-
-  </section>
-
-  <section>
-    <div>
-      <div>Student Satisfaction</div>
-      <div id="studentSatisfactionInfo"></div>
-      <div>meeting or exceeding</div>
-      <div id="studentSatisfactionGraphic"></div>
-    </div>
-    <div>
-      <div id="teacherRatingInfo"></div>
-      <div id="teacherRatingGraphic"></div>
-    </div>
-    <div>
-      <div id="jediMasterRatingInfo"></div>
-      <div id="jediMasterRatingGraphic"></div>
-    </div>
-  </section>
-
-
-
-
-
-
-  <footer>
-    <span class="iconsMargin">
-      <a href="https://www.facebook.com/Laboratoriabr/" target="_blank">
-        <i class="icon-facebook-squared icons" title="Facebook"></i>
-      </a>
-    </span>
-    <span class="iconsMargin">
-      <a href="https://www.instagram.com/laboratoriala/" target="_blank">
-        <i class="icon-instagrem icons" title="Instagram"></i>
-      </a>
-    </span>
-    <span class="iconsMargin">
-      <a href="https://twitter.com/laboratoriala" target="_blank">
-        <i class="icon-twitter icons" title="Twitter"></i>
-      </a>
-    </span>
-  </footer>
-
-  <!-- Base de datos -->
-  <script src="./js/data.js"></script>
-  <!-- google charts -->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <!-- Aquí va tus archivos JS -->
-  <script src="./js/screen1.js"></script>
-
-
-
-</body>
-
+		<!-- BASE DE DADOS -->
+		<script src="./js/data.js"></script>
+    <!-- GOOGLE CHARTS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- arquivos JS -->
+    <script src="./js/screen1.js"></script>
+     
+  </body>
 </html>
