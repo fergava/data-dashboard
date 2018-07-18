@@ -268,8 +268,6 @@ header {
 	align-self: center;
   }
 
-
-
 /*RODAPÉ*/
 footer {
 	height: 50px;
@@ -323,7 +321,7 @@ a {
 	height: 400px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 	border: 2px solid grey;
 	margin: 10px;
 }

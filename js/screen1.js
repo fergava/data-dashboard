@@ -90,8 +90,6 @@ function drawChartPizza() {
   var options = {
 
 
-    "width": 400,
-    "height": 300,
     "colors": ["#FFE521", "#CD2626"]
   };
   var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
