@@ -107,6 +107,7 @@ function drawChartPizza() {
   chart.draw(data, options);
 }
 
+
 // grafico 2 (linha) - maiores de 70% tech e hse por sprints
 google.charts.setOnLoadCallback(drawChart);
 
@@ -223,5 +224,49 @@ function drawBarChart() {
     legend: { position: "none" },
   };
   var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+  chart.draw(data, options);
+}
+
+//Gráfico 4 - Tech Skills
+google.charts.setOnLoadCallback(drawPieChartTech);
+
+// Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
+function avgTechStudents() {
+
+  var techSprint = document.getElementById('techSprint');
+  var sprint = techSprint.value;
+
+  console.log(sprint);
+
+  // for (student of data[localMenu][yearClassMenu]["students"]) {
+  //   var grade = 0;
+  //   var average = 0;
+  //   var count = student.sprints.length;
+  //   for (sprint of student.sprints) {
+  //     grade += sprint.score.tech;
+  //   }
+  //   average = grade / count;
+  //   var percent = (average / 1260) * 100;
+  //   var total = Math.round(percent);
+  // }
+  // return total;
+}
+
+
+function drawPieChartTech() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Effort', 'Amount given'],
+    ['My all',     100],
+  ]);
+
+  var options = {
+    pieHole: 0.5,
+    pieSliceTextStyle: {
+      color: 'black',
+    }
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
   chart.draw(data, options);
 }

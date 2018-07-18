@@ -3,7 +3,7 @@
 var localMenu = localStorage.getItem('localMenu');
 var yearClassMenu = localStorage.getItem('yearClassMenu');
 
-if(!localMenu || !yearClassMenu){
+if (!localMenu || !yearClassMenu) {
   window.location.href = 'index.html';
 }
 
