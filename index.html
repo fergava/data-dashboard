@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,700,800,900" rel="stylesheet">
-    <link href="https://file.myfontastic.com/Sf3bLHBYtyyjc8qKTmPFVK/icons.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <a href="index.html" target="" id="home" title="Home"></a>
-      
-      <div id="schedule"><a href="https://calendar.google.com" target="_blank" title="Google Calendar"><i class="icon-calendar"></i></a></div>
-      
-      <div class="loginCheck">
-        <input type="checkbox" id="check">
-        <label for="check"><div id="login" title="Configurações"></div></label>
-        <div class="barra">
-          <nav>
-            <div class="link myCount textNav">MINHA CONTA</div>
-            <div class="link textNav"><i class="icon-heart"></i> Vanessa Pinheiro</div>
-            <a href=""><div class="link"><i class="icon-cog"></i> Configurações</div></a>
-            <a href=""><div class="link"><i class="icon-times"></i> Logout</div></a>
-          </nav>
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,700,800,900" rel="stylesheet">
+  <link href="https://file.myfontastic.com/Sf3bLHBYtyyjc8qKTmPFVK/icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" target="" id="home" title="Home"></a>
+
+    <div id="schedule">
+      <a href="https://calendar.google.com" target="_blank" title="Google Calendar">
+        <i class="icon-calendar"></i>
+      </a>
+    </div>
+
+    <div class="loginCheck">
+      <input type="checkbox" id="check">
+      <label for="check">
+        <div id="login" title="Configurações"></div>
+      </label>
+      <div class="barra">
+        <nav>
+          <div class="link myCount textNav">MINHA CONTA</div>
+          <div class="link textNav">
+            <i class="icon-heart"></i> Vanessa Pinheiro</div>
+          <a href="">
+            <div class="link">
+              <i class="icon-cog"></i> Configurações</div>
+          </a>
+          <a href="">
+            <div class="link">
+              <i class="icon-times"></i> Logout</div>
+          </a>
+        </nav>
       </div>
+    </div>
 
-      
-    </header>
-    
-    <section class="selectors">
 
-      <h1 id="localChoose">Escolha:</h1>
-      <select id="localMenu"></select>
-      <select id="yearClassMenu"></select>
-      <button id="continueButton" type="submit"><a href="#">Continuar</a></button>
-    </section>
+  </header>
 
-    <footer>
-      <span class="iconsMargin"><a href="https://www.facebook.com/Laboratoriabr/" target="_blank"><i class="icon-facebook-squared icons" title="Facebook"></i></a></span>
-      <span class="iconsMargin"><a href="https://www.instagram.com/laboratoriala/" target="_blank"><i class="icon-instagrem icons" title="Instagram"></i></a></span>
-      <span class="iconsMargin"><a href="https://twitter.com/laboratoriala" target="_blank"><i class="icon-twitter icons" title="Twitter"></i></a></span>
-    </footer>
+  <div class="alert-hidden">
+    <span class="alert-text">Selecione as opções abaixo</span>
+  </div>
 
-		<!-- Base de datos -->
-		<script src="./js/data.js"></script>
-		<!-- Aquí va tus archivos JS -->
-    <script src="./js/app.js"></script>
-  </body>
+  <section class="selectors">
+    <h1 id="localChoose">Escolha:</h1>
+    <select id="localMenu"></select>
+    <select id="yearClassMenu"></select>
+    <button id="continueButton" type="submit">
+      <a href="#">Continuar</a>
+    </button>
+  </section>
+
+  <footer>
+    <span class="iconsMargin">
+      <a href="https://www.facebook.com/Laboratoriabr/" target="_blank">
+        <i class="icon-facebook-squared icons" title="Facebook"></i>
+      </a>
+    </span>
+    <span class="iconsMargin">
+      <a href="https://www.instagram.com/laboratoriala/" target="_blank">
+        <i class="icon-instagrem icons" title="Instagram"></i>
+      </a>
+    </span>
+    <span class="iconsMargin">
+      <a href="https://twitter.com/laboratoriala" target="_blank">
+        <i class="icon-twitter icons" title="Twitter"></i>
+      </a>
+    </span>
+  </footer>
+
+  <!-- Base de datos -->
+  <script src="./js/data.js"></script>
+  <!-- Aquí va tus archivos JS -->
+  <script src="./js/app.js"></script>
+</body>
+
 </html>

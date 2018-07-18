@@ -1,15 +1,15 @@
 // PAGE 3 - SCREEN2.HTML
 
-var localMenu = localStorage.getItem('localMenu');
-var yearClassMenu = localStorage.getItem('yearClassMenu');
+var localMenu = localStorage.getItem("localMenu");
+var yearClassMenu = localStorage.getItem("yearClassMenu");
 
 if (!localMenu || !yearClassMenu) {
-  window.location.href = 'index.html';
+  window.location.href = "index.html";
 }
 
 var selectedLocal = document.querySelector("#selectedLocal");
 
-selectedLocal.innerHTML = locals[localMenu] + ' - ' + yearClassMenu;
+selectedLocal.innerHTML = locals[localMenu] + " - " + yearClassMenu;
 
 var students = document.querySelector(".students");
 
@@ -58,7 +58,7 @@ function addStudents() {
     photo.src = student.photo;
     gradeTech.innerHTML = (!isNaN(calcTech(student))) ? calcTech(student) + "%" : "0%";
     gradeHse.innerHTML = (!isNaN(calcHSE(student))) ? calcHSE(student) + "%" : "0%";
-    valueStatus.innerHTML = (student.active) ? 'Ativa' : 'Inativa';
+    valueStatus.innerHTML = (student.active) ? "Ativa" : "Inativa";
 
     setName.appendChild(name);
     block.appendChild(setName);

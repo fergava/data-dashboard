@@ -89,7 +89,7 @@ function averageGeneral() {
   var totalStudents = 0;
   for (student of data[localMenu][yearClassMenu]["students"]) {
     if (student.active === true) {
-      for (sprint of student.sprints) {      
+      for (sprint of student.sprints) {
         if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
           switch (sprint.number) {
             case 1:
@@ -105,9 +105,9 @@ function averageGeneral() {
               arr[4][1] += 1;
               break;
           }
-          totalStudentsAvg ++;
-          totalStudents ++;
-        }        
+          totalStudentsAvg++;
+          totalStudents++;
+        }
       }
     }
   }
@@ -268,11 +268,11 @@ function avgTechStudents() {
   var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-    if(true === student.active){
+    if (true === student.active) {
       if (student.sprints[sprint].score.tech >= 1260) {
         qtd++;
       }
-    }    
+    }
   }
 
   pct = (qtd / total) * 100;
@@ -329,11 +329,11 @@ function avgHseStudents() {
   var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-    if(true === student.active){
+    if (true === student.active) {
       if (student.sprints[sprint].score.hse >= 840) {
         qtd++;
       }
-    }    
+    }
   }
 
   pct = (qtd / total) * 100;
