@@ -11,12 +11,6 @@ var selectedLocal = document.querySelector("#selectedLocal");
 
 selectedLocal.innerHTML = localMenu + ' - ' + yearClassMenu;
 
-// PARA CRIAR DIVS E PRINTAR DADOS
-
-// function addDate() {
-
-// }
-
 google.charts.load('current', {
   'packages': ['corechart']
 });
@@ -41,7 +35,6 @@ function printActiveStudents() {
     ["Inativas", inactive]
   ];
   // printando os dados antes do grafico
-
   // pegar a div do html para manipular
   var dateDiv = document.querySelector(".dateDiv1");
 
@@ -66,9 +59,6 @@ function printActiveStudents() {
   // calculos drop
   var studentsTotal = (active + inactive);
   var drop = (inactive / studentsTotal) * 100 ;
-
-  // pegar a div do html para manipular
-  var dateDiv = document.querySelector(".dateDiv1");
 
     // criar div drop pra colocar 2 dados: numero e leganda
     var divDrop = document.createElement("div"); 
@@ -113,45 +103,85 @@ google.charts.setOnLoadCallback(drawChart);
 
 function averageGeneral() {
 
-  var sp1 = 0;
-  var sp2 = 0;
-  var sp3 = 0;
-  var sp4 = 0;
-  for (student of data[localMenu][yearClassMenu]["students"]) {
-    if (student.active === true) {
+  var sprintSize = data[localMenu][yearClassMenu].ratings.length;
+  
+  var arr = [
+    ['Sprints', 'quantidade de alunas ativas com media maior que 70']
+  ];
 
-      for (sprint of student.sprints) {
-        if (sprint.number == 1) {
-          if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
-            sp1++;
+  for (var i = 1; i <= sprintSize; i++) {
+    arr.push(["SP" + i, 0]);
+  }
+
+  for (student of data[localMenu][yearClassMenu]["students"]) {
+    // console.log(student)
+    for (sprint of student.sprints) {
+      // console.log(sprint.number);
+      
+      if (student.active === true) {
+        if(calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
+          switch(sprint.number) {
+            case 1:
+              arr[1][1] += 1;  
+              break;
+            case 2:
+              arr[2][1] += 1; 
+              break;
+            case 3:
+              arr[3][1] += 1; 
+              break;
+            case 4:
+              arr[4][1] += 1; 
+              break;
           }
         }
-        if (sprint.number == 2) {
-          if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
-            sp2++;
-          }
-        }
-        if (sprint.number == 3) {
-          if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
-            sp3++;
-          }
-        }
-        if (sprint.number == 4) {
-          if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
-            sp4++;
-          }
-        }
-      }
+      } 
     }
   }
 
-  var arr = [
-    ['Sprints', 'quantidade de alunas ativas com media maior que 70'],
-    ['SP1', sp1],
-    ['SP2', sp2],
-    ['SP3', sp3],
-    ['SP4', sp4],
-  ];
+  
+  console.log(arr);
+
+  // printando os dados antes do grafico
+  // pegar a div do html para manipular
+  // var dateDiv2 = document.querySelector(".dateDiv2");
+
+  // // criar nome da seção
+  //   var sectionName = document.createElement("h1");
+  //   sectionName.innerHTML = "Alunas em Destaque > 70% em Tech e HSE"
+  //   dateDiv2.appendChild(sectionName);
+
+  //   // conta média
+  //   var sprintMedia = parseInt((sp1 + sp2 + sp3 + sp4) / 4);
+  //   // console.log(sprintMedia)
+
+  //   // criar div total number pra colocar 2 dados: numero e leganda
+  //   var divTotalNumber = document.createElement("div"); 
+  //     // p - Numero
+  //     var intoBoxActiveP1 = document.createElement("h2");
+  //     intoBoxActiveP1.innerHTML = sprintMedia;
+  //     divTotalNumber.appendChild(intoBoxActiveP1);
+  //     // p - legenda
+  //     var intoBoxActiveP2 = document.createElement("small");
+  //     intoBoxActiveP2.innerHTML = "Alunas contemplam essa média.";
+  //     divTotalNumber.appendChild(intoBoxActiveP2);
+  // // colocar dentro da div do html
+  // dateDiv2.appendChild(divTotalNumber);
+
+  //   // criar div drop pra colocar 2 dados: numero e leganda
+  //   var divTotalNumberPercent = document.createElement("div"); 
+      
+  //     // p - Numero
+  //     var intoBoxP1 = document.createElement("h2");
+  //     intoBoxP1.innerHTML = sprintMedia * 100;
+  //     divTotalNumberPercent.appendChild(intoBoxP1);
+  //     // p - legenda
+  //     var intoBoxP2 = document.createElement("small");
+  //     intoBoxP2.innerHTML = "Porcento do Total de " + (sprintMedia * 100);
+  //     divTotalNumberPercent.appendChild(intoBoxP2);
+
+  // // colocar dentro da div do html
+  // dateDiv2.appendChild(divTotalNumberPercent);
 
   return arr;
 }
