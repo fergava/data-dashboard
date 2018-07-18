@@ -14,7 +14,7 @@ html {
 
 header {
 	height: 100px;
-	background-color:#E6E6FA;
+	background-color: #E6E6FA;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -23,6 +23,7 @@ header {
 .alert-hidden {
 	display: none;
 }
+
 .alert {
 	background-color: #FFE521;
 	width: 40%;
@@ -34,7 +35,7 @@ header {
 	margin: 50px 30% 20px 30%;
 }
 
-.alert-text{
+.alert-text {
 	align-self: center;
 }
 
@@ -42,7 +43,9 @@ header {
 	font-size: 50px;
 }
 
-#home, #schedule, #login {
+#home,
+#schedule,
+#login {
 	margin: 20px;
 }
 
@@ -67,11 +70,12 @@ header {
 }
 
 /*MENU INVISÍVEL*/
+
 #check {
 	display: none;
 }
 
-#check:checked ~ .barra {
+#check:checked~.barra {
 	transform: translateX(-160px);
 	display: block;
 }
@@ -112,51 +116,55 @@ header {
 	text-align: center;
 }
 
-.icon-heart, .icon-cog, .icon-times {
+.icon-heart,
+.icon-cog,
+.icon-times {
 	font-size: 16px;
 	color: #9595EA;
 }
 
 /* Submenu opções */
+
 .submenu {
 	height: 140px;
 	background-color: lightgrey;
 	display: grid;
-  }
-  
-  .sedeSelected {
+}
+
+.sedeSelected {
 	display: flex;
 	justify-content: center;
 	margin-top: 15px;
-  }
-  
-  .screenOption {
+}
+
+.screenOption {
 	font-size: x-large;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 	padding-bottom: 30px;
-  }
-  
-  .submenu h2 {
+}
+
+.submenu h2 {
 	font-size: xx-large;
 	font-weight: bolder;
-  }
-  
-  .submenu h3 {
+}
+
+.submenu h3 {
 	margin-right: 15px;
 	color: black;
-  }
-  
-  .submenu h3:hover {
+}
+
+.submenu h3:hover {
 	text-transform: uppercase;
-	text-decoration:none;
+	text-decoration: none;
 	font-weight: bolder;
 	border-bottom: 4px solid #F6BD00;
 	cursor: pointer;
-  }
+}
 
 /*SEÇÃO DE FILTRO SEDE E GERAÇÃO*/
+
 .selectors {
 	display: flex;
 	flex-direction: column;
@@ -171,7 +179,8 @@ header {
 	font-weight: 700;
 }
 
-#localMenu, #yearClassMenu {
+#localMenu,
+#yearClassMenu {
 	width: 200px;
 	height: 35px;
 	margin-top: 15px;
@@ -198,112 +207,114 @@ header {
 }
 
 /* Tela Estudantes */
-  .students {
+
+.students {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	padding: 30px;
-  }
-  
-  .setStudents {
+}
+
+.setStudents {
 	border: 4px solid lightgrey;
 	border-radius: 25px;
 	width: 60%;
 	align-self: center;
 	margin-bottom: 30px;
-  }
-  
-  .setContainer {
+}
+
+.setContainer {
 	display: flex;
 	justify-content: space-between;
 	padding-left: 30px;
 	padding-right: 30px;
-  }
-  
-  .setNames {
+}
+
+.setNames {
 	display: flex;
 	justify-content: center;
 	padding: 15px;
 	font-size: x-large;
 	font-weight: bolder;
-  }
-  
-  .names {
+}
+
+.names {
 	align-items: center;
-  }
-  
-  img {
+}
+
+img {
 	height: 200px;
 	width: 200px;
-  }
-  
-  .setPhoto {
+}
+
+.setPhoto {
 	padding-bottom: 20px;
-  }
-  
-  .setScore {
+}
+
+.setScore {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-  }
-  
-  .setScore p {
+}
+
+.setScore p {
 	padding: 2px;
-  }
-  
-  .titleTech {
-	font-weight: bold;
-  }
-  
-  .titleHse {
-	font-weight: bold;
-  }
-  
-  .titleStatus {
-	font-weight: bold;
-  }
-  
-  .tech {
-	padding: 5px;
-	border: 2px solid black;
-	border-radius: 5px;
-	width: 80%;
-	align-self: center;
-  }
-  
-  .hse {
-	padding: 5px;
-	border: 2px solid black;
-	border-radius: 5px;
-	width: 80%;
-	align-self: center;
-  }
-  
-  .status {
-	padding: 5px;
-	border: 2px solid black;
-	border-radius: 5px;
-	width: 80%;
-	align-self: center;
-  }
+}
 
+.titleTech {
+	font-weight: bold;
+}
 
+.titleHse {
+	font-weight: bold;
+}
+
+.titleStatus {
+	font-weight: bold;
+}
+
+.tech {
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 80%;
+	align-self: center;
+}
+
+.hse {
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 80%;
+	align-self: center;
+}
+
+.status {
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 80%;
+	align-self: center;
+}
 
 /*RODAPÉ*/
+
 footer {
 	height: 50px;
-	background-color:#E6E6FA;
+	background-color: #E6E6FA;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 }
 
-#facebook, #instagram, #twitter {
+#facebook,
+#instagram,
+#twitter {
 	margin: 30px;
 }
 
 .icons {
-	font-size: 30px;	
+	font-size: 30px;
 }
 
 .iconsMargin {
@@ -347,7 +358,11 @@ a {
 	margin: 10px;
 }
 
-.dateName1, .dateName2, .dateName3, .dateName4, .dateName5 {
+.dateName1,
+.dateName2,
+.dateName3,
+.dateName4,
+.dateName5 {
 	border: 1px solid blue;
 	font-size: 20px;
 	font-weight: 800;
@@ -355,30 +370,27 @@ a {
 	padding: 10px;
 }
 
-.dateDiv1, .dateDiv2, .dateDiv3 {
+.dateDiv1,
+.dateDiv2,
+.dateDiv3 {
 	display: flex;
 	justify-content: space-around;
 	margin: 5px;
 }
 
-.dateContainer,  {
+.dateContainer,
+	{
 	width: 120px;
 	height: 50px;
 	border: 1px solid green;
 }
 
-#selectSprintTech, #selectSprintHse {
+#selectSprintTech,
+#selectSprintHse {
 	width: 80px;
 	height: 30px;
 	border-radius: 15px;
 	text-align-last: center;
 }
 
-#qtdStdLegendTech { 
-
-}
-
-
-
-
-
+#qtdStdLegendTech {}
