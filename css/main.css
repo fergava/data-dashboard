@@ -82,7 +82,7 @@ header {
 	/*text-align: center;*/
 	/* transition: .5s linear; */
 	color: black;
-	border: 2px solid #9595EA;
+	border-bottom: 2px solid #9595EA;
 }
 
 .link:hover {
@@ -134,7 +134,7 @@ header {
 	text-transform: uppercase;
 	text-decoration:none;
 	font-weight: bolder;
-	border-bottom:4px solid #F6BD00;
+	border-bottom: 4px solid #F6BD00;
 	cursor: pointer;
   }
 
@@ -143,14 +143,6 @@ header {
 	height: 500px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.graphics {
-	height: 500px;
-	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
@@ -318,3 +310,56 @@ a {
 /*.activeStudents, .active, .inactive {
 	border: 1px solid red;
 }*/
+
+/*SCREEN 1 - GRAFICOS*/
+
+.directionGraphics {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.graphics {
+	width: 400px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 2px solid grey;
+	margin: 10px;
+}
+
+.dateName1, .dateName2, .dateName3, .dateName4, .dateName5 {
+	border: 1px solid blue;
+	font-size: 20px;
+	font-weight: 800;
+	text-align: center;
+	padding: 10px;
+}
+
+.dateDiv1, .dateDiv2, .dateDiv3 {
+	display: flex;
+	justify-content: space-around;
+	margin: 5px;
+}
+
+.dateContainer,  {
+	width: 120px;
+	height: 50px;
+	border: 1px solid green;
+}
+
+#selectSprintTech, #selectSprintHse {
+	width: 80px;
+	height: 30px;
+	border-radius: 15px;
+	text-align-last: center;
+}
+
+#qtdStdLegendTech { 
+
+}
+
+
+
+
+
