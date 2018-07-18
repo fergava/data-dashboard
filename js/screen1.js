@@ -258,45 +258,139 @@ function drawBarChart() {
 }
 
 //Gráfico 4 - Tech Skills
-google.charts.setOnLoadCallback(drawPieChartTech);
+
+
+var selectSprintTech = document.getElementById('selectSprintTech');
+var selectSprintHse = document.getElementById('selectSprintHse');
+
+window.onload = loadSelect();
+window.onload = drawChartStudentsScoresTech();
+window.onload = drawChartStudentsScoresHse();
+
+function loadSelect(){
+  var sprintSize = data[localMenu][yearClassMenu].ratings.length;
+  for (var i = 1; i <= sprintSize; i++) {
+    var localOptionsTech = document.createElement("option");
+    var localOptionsHse = document.createElement("option");
+    localOptionsTech.innerHTML = "SP"+i;
+    localOptionsHse.innerHTML = "SP"+i;
+    localOptionsTech.value = i-1;
+    localOptionsHse.value = i-1;
+    selectSprintTech.appendChild(localOptionsTech);
+    selectSprintHse.appendChild(localOptionsHse);
+  }
+}
+
+selectSprintTech.addEventListener('change', avgTechStudents);
+selectSprintTech.addEventListener('change', drawChartStudentsScoresTech);
+selectSprintHse.addEventListener('change', avgHseStudents);
+selectSprintHse.addEventListener('change', drawChartStudentsScoresHse);
+
+function drawChartStudentsScoresTech(){
+  google.charts.setOnLoadCallback(drawPieChartTech);
+}
+
+function drawChartStudentsScoresHse(){
+  google.charts.setOnLoadCallback(drawPieChartHse);
+}
+
+
 
 // Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
 function avgTechStudents() {
 
-  var techSprint = document.getElementById('techSprint');
-  var sprint = techSprint.value;
+  var sprint = selectSprintTech.value;
 
-  console.log(sprint);
+  var qtd = 0;
+  var pct = 0;
+  var total = data[localMenu][yearClassMenu]["students"].length;  
 
-  // for (student of data[localMenu][yearClassMenu]["students"]) {
-  //   var grade = 0;
-  //   var average = 0;
-  //   var count = student.sprints.length;
-  //   for (sprint of student.sprints) {
-  //     grade += sprint.score.tech;
-  //   }
-  //   average = grade / count;
-  //   var percent = (average / 1260) * 100;
-  //   var total = Math.round(percent);
-  // }
-  // return total;
+  for (student of data[localMenu][yearClassMenu]["students"]) {
+      if(student.sprints[sprint].score.tech >= 1260){
+        qtd++;
+      }  
+  }
+
+  pct = (qtd / total) * 100;
+  
+  var qtdStdTech = document.getElementById('qtdStdTech');
+  var qtdStdLegendTech = document.getElementById('qtdStdLegendTech');
+  var avgStdTech = document.getElementById('avgStdTech');
+  var ttStdTech  = document.getElementById('ttStdTech');
+  qtdStdTech.innerHTML = qtd;
+  qtdStdLegendTech.innerHTML = 'Número de Alunas';
+  avgStdTech.innerHTML = Math.round(pct) + '%';
+  ttStdTech.innerHTML = `% de total (${total})`;
+
+  return arr = [
+      ['Qtd Alunas', '%'],
+      ['Acima media', Math.round(pct)],
+      ['Baixo media', Math.round((100 - pct))]
+    ];
 }
 
 
 function drawPieChartTech() {
 
-  var data = google.visualization.arrayToDataTable([
-    ['Effort', 'Amount given'],
-    ['My all',     100],
-  ]);
+  var data = google.visualization.arrayToDataTable(avgTechStudents());
 
   var options = {
+    title: 'Porcentagem da média das alunas em Tech',
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: 'black',
     }
   };
 
-  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  var chart = new google.visualization.PieChart(document.getElementById('donutchartTech'));
+  chart.draw(data, options);
+}
+
+// Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
+function avgHseStudents() {
+
+  var sprint = selectSprintHse.value;
+
+  var qtd = 0;
+  var pct = 0;
+  var total = data[localMenu][yearClassMenu]["students"].length;  
+
+  for (student of data[localMenu][yearClassMenu]["students"]) {
+      if(student.sprints[sprint].score.hse >= 840){
+        qtd++;
+      }  
+  }
+
+  pct = (qtd / total) * 100;
+  
+  var qtdStdHse = document.getElementById('qtdStdHse');
+  var qtdStdLegendHse = document.getElementById('qtdStdLegendHse');
+  var avgStdHse = document.getElementById('avgStdHse');
+  var ttStdHse  = document.getElementById('ttStdHse');
+  qtdStdHse.innerHTML = qtd;
+  qtdStdLegendHse.innerHTML = 'Número de Alunas';
+  avgStdHse.innerHTML = Math.round(pct) + '%';
+  ttStdHse.innerHTML = `% de total (${total})`;
+
+  return arr = [
+      ['Qtd Alunas', '%'],
+      ['Acima media', Math.round(pct)],
+      ['Baixo media', Math.round((100 - pct))]
+    ];
+}
+
+function drawPieChartHse() {
+
+  var data = google.visualization.arrayToDataTable(avgHseStudents());
+
+  var options = {
+    title: 'Porcentagem da média das alunas em HSE',
+    pieHole: 0.5,
+    pieSliceTextStyle: {
+      color: 'black',
+    }
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('donutchartHse'));
   chart.draw(data, options);
 }
