@@ -315,7 +315,7 @@ a {
 
 .directionGraphics {
 	display: flex;
-	flex-grow: 
+	flex-wrap: wrap;
 }
 
 .graphics {
@@ -323,11 +323,12 @@ a {
 	height: 400px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	border: 2px solid grey;
-	margin: 30px;
+	margin: 10px;
 }
 
-.dateName1, .dateName2, .dateName3 {
+.dateName1, .dateName2, .dateName3, .dateName4, .dateName5 {
 	border: 1px solid blue;
 	font-size: 20px;
 	font-weight: 800;
@@ -341,11 +342,24 @@ a {
 	margin: 5px;
 }
 
-.dateContainer {
+.dateContainer,  {
 	width: 120px;
 	height: 50px;
 	border: 1px solid green;
 }
+
+#selectSprintTech, #selectSprintHse {
+	width: 80px;
+	height: 30px;
+	border-radius: 15px;
+	text-align-last: center;
+}
+
+#qtdStdLegendTech { 
+
+}
+
+
 
 
 

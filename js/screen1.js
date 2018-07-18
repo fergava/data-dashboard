@@ -295,8 +295,7 @@ function drawBarChart() {
   chart.draw(data, options);
 }
 
-//Gráfico 4 - Tech Skills
-
+//Gráfico 4 (donut) - Tech Skills
 
 var selectSprintTech = document.getElementById('selectSprintTech');
 var selectSprintHse = document.getElementById('selectSprintHse');
@@ -317,6 +316,20 @@ function loadSelect(){
     selectSprintTech.appendChild(localOptionsTech);
     selectSprintHse.appendChild(localOptionsHse);
   }
+
+  var dateName4 = document.querySelector(".dateName4");
+
+  var sectionName = document.createElement("h1");
+  sectionName.innerHTML = "TECH SKILLS";
+  sectionName.className = "dateNameStyle";
+  dateName4.appendChild(sectionName);
+
+  var dateName5 = document.querySelector(".dateName5");
+
+  var sectionName = document.createElement("h1");
+  sectionName.innerHTML = "HSE SKILLS";
+  sectionName.className = "dateNameStyle";
+  dateName5.appendChild(sectionName);
 }
 
 selectSprintTech.addEventListener('change', avgTechStudents);
@@ -331,7 +344,6 @@ function drawChartStudentsScoresTech(){
 function drawChartStudentsScoresHse(){
   google.charts.setOnLoadCallback(drawPieChartHse);
 }
-
 
 
 // Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
@@ -373,7 +385,7 @@ function drawPieChartTech() {
   var data = google.visualization.arrayToDataTable(avgTechStudents());
 
   var options = {
-    title: 'Porcentagem da média das alunas em Tech',
+    
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: 'black',
@@ -422,7 +434,6 @@ function drawPieChartHse() {
   var data = google.visualization.arrayToDataTable(avgHseStudents());
 
   var options = {
-    title: 'Porcentagem da média das alunas em HSE',
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: 'black',
