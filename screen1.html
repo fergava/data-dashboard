@@ -30,192 +30,197 @@
         </div>
       </div>
 
-  </header>
+    </header>
 
-  <section class="submenu">
-    <div class="sedeSelected">
-      <h2 id="selectedLocal"></h2>
-    </div>
-    <div class="screenOption">
-      <a href="screen1.html">
-        <h3>Overview</h3>
-      </a>
-      <a href="screen2.html">
-        <h3>Students</h3>
-      </a>
-      <h3>Teachers</h3>
-    </div>
-  </section>
-    
-    <!-- seção 3 primeiros graficos -->
-    <section class="directionGraphics">
+    <section class="submenu">
+      <div class="sedeSelected">
+        <h2 id="selectedLocal"></h2>
+      </div>
+      <div class="screenOption">
+        <a href="screen1.html">
+          <h3>Overview</h3>
+        </a>
+        <a href="screen2.html">
+          <h3>Students</h3>
+        </a>
+        <a href="">
+          <h3>Teachers</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- todos os graficos -->
+    <section>
+
+      <!-- seção 3 primeiros graficos -->
+      <section class="directionGraphics">
       
-      <!-- grafico 1 -->
-      <section class="graphicsSize1"> 
-        <div>
-          <h1 id="dataName1" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 class="intoBoxActiveH2 graphicsH2"></h2>
-            <small class="intoBoxActiveSmall small"></small>
+        <!-- grafico 1 -->
+        <section class="graphicsSize1"> 
+          <div>
+            <h1 id="dataName1" class="dataName"></h1>
           </div>
-          <div class="eachContainerData">
-            <h2 class="intoBoxDropH2 graphicsH2"></h2>
-            <small class="intoBoxDropSmall small"></small>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxActiveH2 graphicsH2"></h2>
+              <small class="intoBoxActiveSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 class="intoBoxDropH2 graphicsH2"></h2>
+              <small class="intoBoxDropSmall small"></small>
+            </div>
           </div>
-        </div>
-        <div id="chart_div"></div>
+          <div id="chart_div"></div>
+        </section>
+
+        <!-- grafico 2 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName2" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxMediaH2 graphicsH2"></h2>
+              <small class="intoBoxMediaSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 class="intoBoxPercentH2 graphicsH2"></h2>
+              <small class="intoBoxPercentSmall small"></small>
+            </div>
+          </div>
+          <div id="curve_chart"></div>
+        </section>
+
+        <!-- grafico 3 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName3" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 class="intoBoxCumulativeH2 graphicsH2"></h2>
+              <small class="intoBoxCumulativeSmall small"></small>
+            </div>
+            <div class="eachContainerData">
+              <p class="promotersP"></p>
+              <p class="passiveP"></p>
+              <p class="detrectorsP"></p>
+            </div>
+          </div>
+          <div id="bar_chart"></div>
+        </section>
       </section>
 
-      <!-- grafico 2 -->
-      <section class="graphicsSize1">
-        <div>
-          <h1 id="dataName2" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 class="intoBoxMediaH2 graphicsH2"></h2>
-            <small class="intoBoxMediaSmall small"></small>
+      <!-- seção 2 graficos do meio -->
+      <section class="directionGraphics">
+        <!-- grafico 4 -->
+        <section class="graphicsSize2">
+          <div>
+            <h1 id="dataName4" class="dataName"></h1>
           </div>
-          <div class="eachContainerData">
-            <h2 class="intoBoxPercentH2 graphicsH2"></h2>
-            <small class="intoBoxPercentSmall small"></small>
+          <div class="selectDiv">
+            <select id="selectSprintTech"></select>
           </div>
-        </div>
-        <div id="curve_chart"></div>
-      </section>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="qtdStdTech" class="graphicsH2"></h2>
+              <small id="qtdStdLegendTech" class="small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 id="avgStdTech" class="graphicsH2"></h2>
+              <small id="ttStdTech" class="small"></small>
+            </div>
+          </div>
+          <div id="donutchartTech"></div>
+        </section>
 
-      <!-- grafico 3 -->
-      <section class="graphicsSize1">
-        <div>
-          <h1 id="dataName3" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 class="intoBoxCumulativeH2 graphicsH2"></h2>
-            <small class="intoBoxCumulativeSmall small"></small>
+        <!-- grafico 5 -->
+        <section class="graphicsSize2">
+          <div>
+            <h1 id="dataName5" class="dataName"></h1>
           </div>
-          <div class="eachContainerData">
-            <p class="promotersP"></p>
-            <p class="passiveP"></p>
-            <p class="detrectorsP"></p>
+          <div class="selectDiv">
+            <select id="selectSprintHse"></select>
           </div>
-        </div>
-        <div id="bar_chart"></div>
-      </section>
-
-    </section>
-
-    <!-- seção 2 graficos do meio -->
-    <section class="directionGraphics">
-      <!-- grafico 4 -->
-      <section class="graphicsSize2">
-        <div>
-          <h1 id="dataName4" class="dataName"></h1>
-        </div>
-        <div class="selectDiv">
-          <select id="selectSprintTech"></select>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 id="qtdStdTech" class="graphicsH2"></h2>
-            <small id="qtdStdLegendTech" class="small"></small>
+          <div class="dataDiv">
+            <div class="eachContainerData">        
+              <h2 id="qtdStdHse" class="graphicsH2"></h2>
+              <small id="qtdStdLegendHse" class="small"></small>
+            </div>
+            <div class="eachContainerData">
+              <h2 id="avgStdHse" class="graphicsH2"></h2>
+              <small id="ttStdHse" class="small"></small>
+            </div>
           </div>
-          <div class="eachContainerData">
-            <h2 id="avgStdTech" class="graphicsH2"></h2>
-            <small id="ttStdTech" class="small"></small>
-          </div>
-        </div>
-        <div id="donutchartTech"></div>
-      </section>
-
-      <!-- grafico 5 -->
-      <section class="graphicsSize2">
-        <div>
-          <h1 id="dataName5" class="dataName"></h1>
-        </div>
-        <div class="selectDiv">
-          <select id="selectSprintHse"></select>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">        
-            <h2 id="qtdStdHse" class="graphicsH2"></h2>
-            <small id="qtdStdLegendHse" class="small"></small>
-          </div>
-          <div class="eachContainerData">
-            <h2 id="avgStdHse" class="graphicsH2"></h2>
-            <small id="ttStdHse" class="small"></small>
-          </div>
-        </div>
-        <div id="donutchartHse"></div>
+          <div id="donutchartHse"></div>
+        </section>
       </section>
     
-    </section>
-    
-   <!-- seção 3 ultimos graficos -->
-    <section class="directionGraphics">
-      <!-- grafico 6 -->
-      <section class="graphicsSize1">
-        <div>
-          <h1 id="dataName6" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 id="studentSatisfactionInfoH2" class="graphicsH2"></h2>
-            <small class="studentSatisfactionInfoSmall small"></small>
+      <!-- seção 3 ultimos graficos -->
+      <section class="directionGraphics">
+        <!-- grafico 6 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName6" class="dataName"></h1>
           </div>
-        </div>
-        <div id="studentSatisfactionGraphic"></div>        
-      </section>
-        
-      <!-- grafico 7 -->
-      <section class="graphicsSize1">
-        <div>
-          <h1 id="dataName7" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 id="teacherRatingInfoH2" class="graphicsH2"></h2>
-            <small class="teacherRatingInfoSmall small"></small>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="studentSatisfactionInfoH2" class="graphicsH2"></h2>
+              <small class="studentSatisfactionInfoSmall small"></small>
+            </div>
           </div>
-        </div>
-        <div id="teacherRatingGraphic"></div>
-      </section>
+          <div id="studentSatisfactionGraphic"></div>        
+        </section>
         
-      <!-- grafico 8 -->
-      <section class="graphicsSize1">
-        <div>
-          <h1 id="dataName8" class="dataName"></h1>
-        </div>
-        <div class="dataDiv">
-          <div class="eachContainerData">
-            <h2 id="jediMasterRatingInfoH2" class="graphicsH2"></h2>
-            <small class="jediMasterRatingInfoSmall small"></small>
-           </div>
-        </div>
-        <div id="jediMasterRatingGraphic"></div>
+        <!-- grafico 7 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName7" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="teacherRatingInfoH2" class="graphicsH2"></h2>
+              <small class="teacherRatingInfoSmall small"></small>
+            </div>
+          </div>
+          <div id="teacherRatingGraphic"></div>
+        </section>
+        
+        <!-- grafico 8 -->
+        <section class="graphicsSize1">
+          <div>
+            <h1 id="dataName8" class="dataName"></h1>
+          </div>
+          <div class="dataDiv">
+            <div class="eachContainerData">
+              <h2 id="jediMasterRatingInfoH2" class="graphicsH2"></h2>
+              <small class="jediMasterRatingInfoSmall small"></small>
+            </div>
+          </div>
+          <div id="jediMasterRatingGraphic"></div>
+        </section>
       </section>
+  
     </section>
-  </section>
+
 
     <footer>
-    <span class="iconsMargin">
-      <a href="https://www.facebook.com/Laboratoriabr/" target="_blank">
-        <i class="icon-facebook-squared icons" title="Facebook"></i>
-      </a>
-    </span>
-    <span class="iconsMargin">
-      <a href="https://www.instagram.com/laboratoriala/" target="_blank">
-        <i class="icon-instagrem icons" title="Instagram"></i>
-      </a>
-    </span>
-    <span class="iconsMargin">
-      <a href="https://twitter.com/laboratoriala" target="_blank">
-        <i class="icon-twitter icons" title="Twitter"></i>
-      </a>
-    </span>
-  </footer>
+      <span class="iconsMargin">
+        <a href="https://www.facebook.com/Laboratoriabr/" target="_blank">
+          <i class="icon-facebook-squared icons" title="Facebook"></i>
+        </a>
+      </span>
+      <span class="iconsMargin">
+        <a href="https://www.instagram.com/laboratoriala/" target="_blank">
+          <i class="icon-instagrem icons" title="Instagram"></i>
+        </a>
+      </span>
+      <span class="iconsMargin">
+        <a href="https://twitter.com/laboratoriala" target="_blank">
+          <i class="icon-twitter icons" title="Twitter"></i>
+        </a>
+      </span>
+    </footer>
 
 		<!-- BASE DE DADOS -->
 		<script src="./js/data.js"></script>
@@ -225,7 +230,4 @@
     <script src="./js/screen1.js"></script>
      
   </body>
-</html>
-</body>
-
 </html>

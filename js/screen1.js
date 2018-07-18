@@ -401,7 +401,7 @@ function studentSatisfactionData() {
 
   var totalSs = (avgSs * stdSize) / 100;
   studentSatisfactionInfoH2.innerHTML = Math.round(totalSs);
-  studentSatisfactionInfoSmall.innerHTML = "Acham que Cumpre ou Supera"
+  studentSatisfactionInfoSmall.innerHTML = "Acham que Cumpre ou Supera as expectativas."
 
   return array;
 }
