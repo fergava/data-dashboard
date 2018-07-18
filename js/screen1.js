@@ -39,38 +39,38 @@ function printActiveStudents() {
   var dateDiv = document.querySelector(".dateDiv1");
 
   // criar nome da seção
-    var sectionName = document.createElement("h1");
-    sectionName.innerHTML = "Alunas inscritas"
-    dateDiv.appendChild(sectionName);
+  var sectionName = document.createElement("h1");
+  sectionName.innerHTML = "Alunas inscritas"
+  dateDiv.appendChild(sectionName);
 
-    // criar div drop pra colocar 2 dados: numero e leganda
-    var divActive = document.createElement("div"); 
-      // p - Numero
-      var intoBoxActiveP1 = document.createElement("h2");
-      intoBoxActiveP1.innerHTML = active;
-      divActive.appendChild(intoBoxActiveP1);
-      // p - legenda
-      var intoBoxActiveP2 = document.createElement("small");
-      intoBoxActiveP2.innerHTML = "Alunas Ativas";
-      divActive.appendChild(intoBoxActiveP2);
+  // criar div drop pra colocar 2 dados: numero e leganda
+  var divActive = document.createElement("div");
+  // p - Numero
+  var intoBoxActiveP1 = document.createElement("h2");
+  intoBoxActiveP1.innerHTML = active;
+  divActive.appendChild(intoBoxActiveP1);
+  // p - legenda
+  var intoBoxActiveP2 = document.createElement("small");
+  intoBoxActiveP2.innerHTML = "Alunas Ativas";
+  divActive.appendChild(intoBoxActiveP2);
   // colocar dentro da div do html
   dateDiv.appendChild(divActive);
 
   // calculos drop
   var studentsTotal = (active + inactive);
-  var drop = (inactive / studentsTotal) * 100 ;
+  var drop = (inactive / studentsTotal) * 100;
 
-    // criar div drop pra colocar 2 dados: numero e leganda
-    var divDrop = document.createElement("div"); 
-      
-      // p - Numero
-      var intoBoxP1 = document.createElement("h2");
-      intoBoxP1.innerHTML = drop.toFixed(1);
-      divDrop.appendChild(intoBoxP1);
-      // p - legenda
-      var intoBoxP2 = document.createElement("small");
-      intoBoxP2.innerHTML = "Desistentes";
-      divDrop.appendChild(intoBoxP2);
+  // criar div drop pra colocar 2 dados: numero e leganda
+  var divDrop = document.createElement("div");
+
+  // p - Numero
+  var intoBoxP1 = document.createElement("h2");
+  intoBoxP1.innerHTML = drop.toFixed(1);
+  divDrop.appendChild(intoBoxP1);
+  // p - legenda
+  var intoBoxP2 = document.createElement("small");
+  intoBoxP2.innerHTML = "Desistentes";
+  divDrop.appendChild(intoBoxP2);
 
   // colocar dentro da div do html
   dateDiv.appendChild(divDrop);
@@ -104,7 +104,7 @@ google.charts.setOnLoadCallback(drawChart);
 function averageGeneral() {
 
   var sprintSize = data[localMenu][yearClassMenu].ratings.length;
-  
+
   var arr = [
     ['Sprints', 'quantidade de alunas ativas com media maior que 70']
   ];
@@ -117,29 +117,29 @@ function averageGeneral() {
     // console.log(student)
     for (sprint of student.sprints) {
       // console.log(sprint.number);
-      
+
       if (student.active === true) {
-        if(calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
-          switch(sprint.number) {
+        if (calcHseSprint(sprint) >= 70 && calcTechSprint(sprint) >= 70) {
+          switch (sprint.number) {
             case 1:
-              arr[1][1] += 1;  
+              arr[1][1] += 1;
               break;
             case 2:
-              arr[2][1] += 1; 
+              arr[2][1] += 1;
               break;
             case 3:
-              arr[3][1] += 1; 
+              arr[3][1] += 1;
               break;
             case 4:
-              arr[4][1] += 1; 
+              arr[4][1] += 1;
               break;
           }
         }
-      } 
+      }
     }
   }
 
-  
+
   console.log(arr);
 
   // printando os dados antes do grafico
@@ -170,7 +170,7 @@ function averageGeneral() {
 
   //   // criar div drop pra colocar 2 dados: numero e leganda
   //   var divTotalNumberPercent = document.createElement("div"); 
-      
+
   //     // p - Numero
   //     var intoBoxP1 = document.createElement("h2");
   //     intoBoxP1.innerHTML = sprintMedia * 100;
@@ -216,7 +216,7 @@ function drawChart() {
 //grafico 3 (barra) - NPS
 google.charts.setOnLoadCallback(drawBarChart);
 
-function calcNps(){
+function calcNps() {
   var sprint = 0;
   var totalNps = 0;
   var promoters = 0;
@@ -226,16 +226,16 @@ function calcNps(){
     promoters += rating.nps.promoters;
     passive += rating.nps.passive;
     detractors += rating.nps.detractors;
-    sprint ++;
+    sprint++;
   }
   totalNps = promoters - detractors;
-  
-  var arr =[
+
+  var arr = [
     ['Name', '%'],
-    ['NPS', (totalNps/sprint)],
-    ['Promoters', (promoters/sprint)],
-    ['Passive',(passive/sprint)],
-    ['Detractors',(detractors/sprint)]
+    ['NPS', (totalNps / sprint)],
+    ['Promoters', (promoters / sprint)],
+    ['Passive', (passive / sprint)],
+    ['Detractors', (detractors / sprint)]
   ];
   return arr;
 }
@@ -250,8 +250,12 @@ function drawBarChart() {
     },
     width: 600,
     height: 400,
-    bar: {groupWidth: "70%"},
-    legend: { position: "none" },
+    bar: {
+      groupWidth: "70%"
+    },
+    legend: {
+      position: "none"
+    },
   };
   var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
   chart.draw(data, options);
@@ -267,15 +271,15 @@ window.onload = loadSelect();
 window.onload = drawChartStudentsScoresTech();
 window.onload = drawChartStudentsScoresHse();
 
-function loadSelect(){
+function loadSelect() {
   var sprintSize = data[localMenu][yearClassMenu].ratings.length;
   for (var i = 1; i <= sprintSize; i++) {
     var localOptionsTech = document.createElement("option");
     var localOptionsHse = document.createElement("option");
-    localOptionsTech.innerHTML = "SP"+i;
-    localOptionsHse.innerHTML = "SP"+i;
-    localOptionsTech.value = i-1;
-    localOptionsHse.value = i-1;
+    localOptionsTech.innerHTML = "SP" + i;
+    localOptionsHse.innerHTML = "SP" + i;
+    localOptionsTech.value = i - 1;
+    localOptionsHse.value = i - 1;
     selectSprintTech.appendChild(localOptionsTech);
     selectSprintHse.appendChild(localOptionsHse);
   }
@@ -286,11 +290,11 @@ selectSprintTech.addEventListener('change', drawChartStudentsScoresTech);
 selectSprintHse.addEventListener('change', avgHseStudents);
 selectSprintHse.addEventListener('change', drawChartStudentsScoresHse);
 
-function drawChartStudentsScoresTech(){
+function drawChartStudentsScoresTech() {
   google.charts.setOnLoadCallback(drawPieChartTech);
 }
 
-function drawChartStudentsScoresHse(){
+function drawChartStudentsScoresHse() {
   google.charts.setOnLoadCallback(drawPieChartHse);
 }
 
@@ -303,30 +307,30 @@ function avgTechStudents() {
 
   var qtd = 0;
   var pct = 0;
-  var total = data[localMenu][yearClassMenu]["students"].length;  
+  var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-      if(student.sprints[sprint].score.tech >= 1260){
-        qtd++;
-      }  
+    if (student.sprints[sprint].score.tech >= 1260) {
+      qtd++;
+    }
   }
 
   pct = (qtd / total) * 100;
-  
+
   var qtdStdTech = document.getElementById('qtdStdTech');
   var qtdStdLegendTech = document.getElementById('qtdStdLegendTech');
   var avgStdTech = document.getElementById('avgStdTech');
-  var ttStdTech  = document.getElementById('ttStdTech');
+  var ttStdTech = document.getElementById('ttStdTech');
   qtdStdTech.innerHTML = qtd;
   qtdStdLegendTech.innerHTML = 'Número de Alunas';
   avgStdTech.innerHTML = Math.round(pct) + '%';
   ttStdTech.innerHTML = `% de total (${total})`;
 
   return arr = [
-      ['Qtd Alunas', '%'],
-      ['Acima media', Math.round(pct)],
-      ['Baixo media', Math.round((100 - pct))]
-    ];
+    ['Qtd Alunas', '%'],
+    ['Acima media', Math.round(pct)],
+    ['Baixo media', Math.round((100 - pct))]
+  ];
 }
 
 
@@ -346,37 +350,37 @@ function drawPieChartTech() {
   chart.draw(data, options);
 }
 
-// Qtd e Porcentagem de alunas com media > 70 por sprint em TECH
+// Qtd e Porcentagem de alunas com media > 70 por sprint em HSE
 function avgHseStudents() {
 
   var sprint = selectSprintHse.value;
 
   var qtd = 0;
   var pct = 0;
-  var total = data[localMenu][yearClassMenu]["students"].length;  
+  var total = data[localMenu][yearClassMenu]["students"].length;
 
   for (student of data[localMenu][yearClassMenu]["students"]) {
-      if(student.sprints[sprint].score.hse >= 840){
-        qtd++;
-      }  
+    if (student.sprints[sprint].score.hse >= 840) {
+      qtd++;
+    }
   }
 
   pct = (qtd / total) * 100;
-  
+
   var qtdStdHse = document.getElementById('qtdStdHse');
   var qtdStdLegendHse = document.getElementById('qtdStdLegendHse');
   var avgStdHse = document.getElementById('avgStdHse');
-  var ttStdHse  = document.getElementById('ttStdHse');
+  var ttStdHse = document.getElementById('ttStdHse');
   qtdStdHse.innerHTML = qtd;
   qtdStdLegendHse.innerHTML = 'Número de Alunas';
   avgStdHse.innerHTML = Math.round(pct) + '%';
   ttStdHse.innerHTML = `% de total (${total})`;
 
   return arr = [
-      ['Qtd Alunas', '%'],
-      ['Acima media', Math.round(pct)],
-      ['Baixo media', Math.round((100 - pct))]
-    ];
+    ['Qtd Alunas', '%'],
+    ['Acima media', Math.round(pct)],
+    ['Baixo media', Math.round((100 - pct))]
+  ];
 }
 
 function drawPieChartHse() {
@@ -392,5 +396,142 @@ function drawPieChartHse() {
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('donutchartHse'));
+  chart.draw(data, options);
+}
+
+
+var studentSatisfactionInfo = document.getElementById('studentSatisfactionInfo');
+var studentSatisfactionGraphic = document.getElementById('studentSatisfactionGraphic');
+
+function studentSatisfactionData() {
+
+  var sprintSize = data[localMenu][yearClassMenu].ratings.length;
+  var array = [
+    ['Sprints', '% de Alunas']
+  ];
+
+  for (var i = 1; i <= sprintSize; i++) {
+    array.push(["SP" + i, 0]);
+  }
+  
+  var x = 1;
+  var avgSs = 0
+  for (rating of data[localMenu][yearClassMenu]["ratings"]) {
+    array[x][1] += (rating.student.cumple + rating.student.supera);
+    avgSs += (rating.student.cumple + rating.student.supera);
+    x++;
+  }
+
+  var studentSatisfactionInfo = document.getElementById('studentSatisfactionInfo');
+  var totalAlunas = data[localMenu][yearClassMenu].students.length; 
+
+  avgSs = (avgSs/sprintSize);
+  
+  var totalSs = (avgSs * totalAlunas) / 100;
+
+  studentSatisfactionInfo.innerHTML = Math.round(totalSs);
+  
+  return array;
+}
+
+google.charts.setOnLoadCallback(drawLineChartStudentSatisfaction);
+
+function drawLineChartStudentSatisfaction() {
+
+  var data = google.visualization.arrayToDataTable(studentSatisfactionData());
+
+  var options = {
+    title: 'Estudantes Satisfeitas por Sprint em %',
+    curveType: 'function',
+    legend: {
+      position: 'bottom'
+    }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('studentSatisfactionGraphic'));
+  chart.draw(data, options);
+}
+
+
+var teacherRatingInfo = document.getElementById('teacherRatingInfo');
+var teacherRatingGraphic = document.getElementById('teacherRatingGraphic');
+
+function teacherRatingData() {
+
+  var sprintSize = data[localMenu][yearClassMenu].ratings.length;
+  var array = [
+    ['Sprints', 'Professores']
+  ];
+
+  for (var i = 1; i <= sprintSize; i++) {
+    array.push(["SP" + i, 0]);
+  }
+  
+  var x = 1;
+  for (rating of data[localMenu][yearClassMenu]["ratings"]) {
+    array[x][1] += rating.teacher;
+    x++;
+  }
+
+  return array;
+}
+
+google.charts.setOnLoadCallback(drawLineChartTeacherRating);
+
+function drawLineChartTeacherRating() {
+
+  var data = google.visualization.arrayToDataTable(teacherRatingData());
+
+  var options = {
+    title: 'Nota dos professores por sprint',
+    curveType: 'function',
+    legend: {
+      position: 'bottom'
+    }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('teacherRatingGraphic'));
+  chart.draw(data, options);
+}
+
+
+
+var jediMasterRatingInfo = document.getElementById('jediMasterRatingInfo');
+var jediMasterRatingGraphic = document.getElementById('jediMasterRatingGraphic');
+
+function jediMasterRatingData() {
+  var sprintSize = data[localMenu][yearClassMenu].ratings.length;
+  var array = [
+    ['Sprints', 'Mentores']
+  ];
+
+  for (var i = 1; i <= sprintSize; i++) {
+    array.push(["SP" + i, 0]);
+  }
+  
+  var x = 1;
+  for (rating of data[localMenu][yearClassMenu]["ratings"]) {
+    array[x][1] += rating.jedi;
+    x++;
+  }
+  
+  return array;
+}
+
+google.charts.setOnLoadCallback(drawLineChartJediMasterRating);
+
+function drawLineChartJediMasterRating() {
+
+  var data = google.visualization.arrayToDataTable(jediMasterRatingData());
+
+  var options = {
+    title: 'Nota dos mentores por sprint',
+    curveType: 'function',
+    legend: {
+      position: 'bottom'
+    }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('jediMasterRatingGraphic'));
   chart.draw(data, options);
 }
