@@ -61,6 +61,22 @@ function printActiveStudents() {
 
   // calculos drop
   var studentsTotal = (active + inactive);
+<<<<<<< HEAD
+  var drop = (inactive / studentsTotal) * 100 ;
+
+    // criar div drop pra colocar 2 dados: numero e leganda
+    var divDrop = document.createElement("div");
+    divDrop.className = "dateContainer"; 
+      
+      // p - Numero
+      var intoBoxP1 = document.createElement("h2");
+      intoBoxP1.innerHTML = drop.toFixed(1);
+      divDrop.appendChild(intoBoxP1);
+      // p - legenda
+      var intoBoxP2 = document.createElement("small");
+      intoBoxP2.innerHTML = "Desistentes";
+      divDrop.appendChild(intoBoxP2);
+=======
   var drop = (inactive / studentsTotal) * 100;
 
   // criar div drop pra colocar 2 dados: numero e leganda
@@ -75,6 +91,7 @@ function printActiveStudents() {
   var intoBoxP2 = document.createElement("small");
   intoBoxP2.innerHTML = "Desistentes";
   divDrop.appendChild(intoBoxP2);
+>>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
 
   // colocar dentro da div do html
   dateDiv1.appendChild(divDrop);
@@ -296,6 +313,7 @@ function drawBarChart() {
     legend: {
       position: "none"
     },
+>>>>>>> ec0d36106ca59838dde97de34f338a9651c6b0b8
   };
   var chart = new google.visualization.BarChart(document.getElementById("bar_chart"));
   chart.draw(data, options);
@@ -391,7 +409,7 @@ function drawPieChartTech() {
   var data = google.visualization.arrayToDataTable(avgTechStudents());
 
   var options = {
-
+    
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: "black",
