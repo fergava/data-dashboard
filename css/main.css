@@ -8,13 +8,17 @@ html {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	overflow-x: hidden;
+	height: 100%;
+}
+
+body {
+	height: 100%;
 }
 
 /* CABEÇALHO */
 
 header {
 	height: 100px;
-	background-color: #E6E6FA;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -126,8 +130,8 @@ header {
 /* Submenu opções */
 
 .submenu {
-	height: 140px;
-	background-color: lightgrey;
+	height: 120px;
+	background-color: #E6E6FA;
 	display: grid;
 }
 
@@ -142,7 +146,7 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
 }
 
 .submenu h2 {
@@ -171,7 +175,8 @@ header {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50px;
-	margin-top: 50px
+	margin-top: 50px;
+	position: relative;
 }
 
 #localChoose {
@@ -298,13 +303,15 @@ img {
 }
 
 /*RODAPÉ*/
-
 footer {
 	height: 50px;
 	background-color: #E6E6FA;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 #facebook,

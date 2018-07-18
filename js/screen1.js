@@ -93,7 +93,7 @@ function drawChartPizza() {
 
     "width": 400,
     "height": 300,
-    "colors": ["#FFE521", "#CD2626"]
+    "colors": ["#7FFFD4", "#EE3A8C"]
   };
   var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
   chart.draw(data, options);
@@ -205,7 +205,8 @@ function drawChart() {
     curveType: "function",
     legend: {
       position: "bottom"
-    }
+    },
+    colors:["#F90088"]
   };
   var chart = new google.visualization.LineChart(document.getElementById("curve_chart"));
   chart.draw(data, options);
@@ -291,14 +292,17 @@ function calcNps() {
 function drawBarChart() {
   var data = google.visualization.arrayToDataTable(calcNps());
   var options = {
+  
     bar: {
       groupWidth: "70%"
     },
     legend: {
       position: "none"
     },
+    colors: ["#5CFFD4", "#5CFFD4","#5CFFD4", "#F90088"]
   };
-  var chart = new google.visualization.BarChart(document.getElementById("bar_chart"));
+  var chart = new google.visualization.ColumnChart(
+    document.getElementById('bar_chart'));
   chart.draw(data, options);
 }
 
@@ -396,7 +400,8 @@ function drawPieChartTech() {
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: "black",
-    }
+    },
+    colors: ["#5CFFD4", "#F90088"]
   };
 
   var chart = new google.visualization.PieChart(document.getElementById("donutchartTech"));
@@ -456,7 +461,8 @@ function drawPieChartHse() {
     pieHole: 0.5,
     pieSliceTextStyle: {
       color: "black",
-    }
+    },
+    colors:["#5CFFD4", "#F90088"]
   };
 
   var chart = new google.visualization.PieChart(document.getElementById("donutchartHse"));
@@ -508,7 +514,8 @@ function drawLineChartStudentSatisfaction() {
     curveType: "function",
     legend: {
       position: "bottom"
-    }
+    },
+    colors: ["#F90088"]
   };
 
   var chart = new google.visualization.LineChart(document.getElementById("studentSatisfactionGraphic"));
@@ -555,7 +562,8 @@ function drawLineChartTeacherRating() {
     curveType: "function",
     legend: {
       position: "bottom"
-    }
+    },
+    colors: ["#F90088"]
   };
 
   var chart = new google.visualization.LineChart(document.getElementById("teacherRatingGraphic"));
@@ -601,7 +609,8 @@ function drawLineChartJediMasterRating() {
     curveType: "function",
     legend: {
       position: "bottom"
-    }
+    },
+    colors: ["#F90088"]
   };
 
   var chart = new google.visualization.LineChart(document.getElementById("jediMasterRatingGraphic"));
