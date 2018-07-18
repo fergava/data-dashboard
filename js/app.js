@@ -35,7 +35,7 @@ localMenu.addEventListener("change", createOptions2);
 function createOptions2() {
 	var local = localMenu.value;
 	yearClassMenu.innerHTML = "";
-	
+
 	var yearClassOptions = document.createElement("option");
 	yearClassOptions.innerHTML = "Ano - Turma";
 	yearClassOptions.value = "none";
@@ -54,7 +54,7 @@ var continueButton = document.querySelector("#continueButton");
 continueButton.addEventListener("click", sendData);
 
 function sendData() {
-	if(localMenu.value === "none" || yearClassMenu.value === "none"){		
+	if (localMenu.value === "none" || yearClassMenu.value === "none") {
 		alert.className = "alert";
 	} else {
 		localStorage.setItem("localMenu", localMenu.value);

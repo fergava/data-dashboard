@@ -64,9 +64,6 @@ header {
 	background-image: url("../assets/images/profile-vanessa.jpg");
 	background-size: cover;
 	cursor: pointer;
-	/* position: absolute; */
-	/* z-index: 1; */
-	/*border: 1px solid red;*/
 }
 
 /*MENU INVISÍVEL*/
@@ -85,9 +82,9 @@ header {
 	width: 160px;
 	position: absolute;
 	right: -160px;
-	/* transition: all .10s linear; */
 	z-index: 500;
 	display: none;
+	background-color: #E7E2FA;
 }
 
 .hiddenNav {
@@ -299,6 +296,7 @@ img {
 }
 
 /*RODAPÉ*/
+
 footer {
 	height: 50px;
 	background-color: #E6E6FA;
@@ -370,7 +368,7 @@ a {
 	justify-content: space-around;
 }
 
-.eachContainerData  {
+.eachContainerData {
 	width: 150px;
 	height: 60px;
 	border: 2px solid #9595EA;
@@ -403,13 +401,16 @@ a {
 	justify-content: center;
 }
 
-#selectSprintTech, #selectSprintHse {
+#selectSprintTech,
+#selectSprintHse {
 	width: 80px;
 	height: 30px;
 	border-radius: 15px;
 	text-align-last: center;
 }
 
-.promotersP, .passiveP, .detrectorsP {
+.promotersP,
+.passiveP,
+.detrectorsP {
 	font-size: 16px;
 }

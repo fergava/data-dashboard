@@ -63,7 +63,7 @@ function drawChartPizza() {
   var options = {
 
 
-    "colors": ["#FFE521", "#CD2626"]
+    "colors": ["#00FFD4", "#FF0083"]
   };
   var chart = new google.visualization.PieChart(document.getElementById("chart_div"));
   chart.draw(data, options);
